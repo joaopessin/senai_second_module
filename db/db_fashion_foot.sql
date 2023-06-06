@@ -19,18 +19,18 @@ descricao TEXT
 );
 
 CREATE TABLE cliente(
-	id INT AUTO_INCREMENT PRIMARY KEY,
-    senha CHAR(14) NOT NULL,
-    nome_completo VARCHAR (255) NOT NULL,
-    data_nasc INT NOT NULL,
-    telefone INT(11) NOT NULL,
-    cpf CHAR (14) NOT NULL,
-    email VARCHAR(255) NOT NULL,
-    estado VARCHAR(255) NOT NULL,
-    cidade VARCHAR(255) NOT NULL,
-    rua VARCHAR(255) NOT NULL,
-    number_casa INT(2) NOT NULL,
-    cep INT(9) NOT NULL
+id INT AUTO_INCREMENT PRIMARY KEY,
+senha CHAR(14) NOT NULL,
+nome_completo VARCHAR (255) NOT NULL,
+data_nasc INT NOT NULL,
+telefone INT(11) NOT NULL,
+cpf CHAR (14) NOT NULL,
+email VARCHAR(255) NOT NULL,
+estado VARCHAR(255) NOT NULL,
+cidade VARCHAR(255) NOT NULL,
+rua VARCHAR(255) NOT NULL,
+number_casa INT(2) NOT NULL,
+cep INT(9) NOT NULL
 );
 
 create table funcionario(
@@ -52,47 +52,47 @@ senha VARCHAR(100) NOT NULL
 );
 
 CREATE TABLE estoque(
-	id INT AUTO_INCREMENT PRIMARY KEY,
-    codigo INT(14) NOT NULL,
-    nome VARCHAR(60),
-    unidade BIGINT(10),
-    valor_inicial DECIMAL(6, 2),
-    valor_frete DECIMAL(6, 2),
-    valor_total DECIMAL(6, 2),
-    total_vendas INT(10),
-    cod_barra BIGINT(14),
-    tipo_produto VARCHAR(60)
+id INT AUTO_INCREMENT PRIMARY KEY,
+codigo INT(14) NOT NULL,
+nome VARCHAR(60),
+unidade BIGINT(10),
+valor_inicial DECIMAL(6, 2),
+valor_frete DECIMAL(6, 2),
+valor_total DECIMAL(6, 2),
+total_vendas INT(10),
+cod_barra BIGINT(14),
+tipo_produto VARCHAR(60)
 );
 
 CREATE TABLE editar_perfil(
-	id_usuario SMALLINT PRIMARY KEY,
-    nome VARCHAR(60),
-    sobrenome VARCHAR(60),
-    data_nascimento DATE,
-    cpf CHAR(14),
-    cep INT(9),
-    e_mail VARCHAR(255),
-    estado VARCHAR(255),
-    cidade VARCHAR(255),
-    rua VARCHAR(255),
-    numero INT(9)
+id_usuario SMALLINT PRIMARY KEY,
+nome VARCHAR(60),
+sobrenome VARCHAR(60),
+data_nascimento DATE,
+cpf CHAR(14),
+cep INT(9),
+e_mail VARCHAR(255),
+estado VARCHAR(255),
+cidade VARCHAR(255),
+rua VARCHAR(255),
+numero INT(9)
 );
 
 CREATE TABLE pagamento(
-	id_usuario SMALLINT PRIMARY KEY,
-	nome VARCHAR(60) NOT NULL,
-    data_nascimento DATE NOT NULL,
-    numero_cpf_cnpj INT(20) NOT NULL,
-    nome_cartao VARCHAR(60),
-    numero_cartao INT(16),
-    mes_validade CHAR(3),
-    ano_validade CHAR(4),
-    cvv INT(3),
-    parcelas INT(12)
+id_usuario SMALLINT PRIMARY KEY,
+nome VARCHAR(60) NOT NULL,
+data_nascimento DATE NOT NULL,
+numero_cpf_cnpj INT(20) NOT NULL,
+nome_cartao VARCHAR(60),
+numero_cartao INT(16),
+mes_validade CHAR(3),
+ano_validade CHAR(4),
+cvv INT(3),
+parcelas INT(12)
 );
 
 CREATE USER 'ff_layson'@'localhost' IDENTIFIED BY '123456';
-GRANT SELECT, INSERT, UPDATE, DELETE ON `fashionfoot`.* TO 'ff_layson';
+GRANT SELECT, INSERT, UPDATE, DELETE ON `fashion_foot`.* TO 'ff_layson';
 
 CREATE USER 'ff_lucas'@'localhost' IDENTIFIED BY '123456';
 GRANT SELECT, INSERT, UPDATE, DELETE ON `fashion_foot`.* TO 'ff_lucas';
