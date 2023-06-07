@@ -1,7 +1,7 @@
 ## FASHION FOOT
 
 # Cadastro Funcionario
-- Colocar campo de senha;
+- Colocar campo de senha :heavy_check_mark:
 - Validar data nascimento;
 - Botão Export;
 - Sumário errado (documentação)
