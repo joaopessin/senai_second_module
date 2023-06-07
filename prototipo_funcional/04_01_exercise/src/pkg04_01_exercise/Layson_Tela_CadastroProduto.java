@@ -35,45 +35,7 @@ public class Layson_Tela_CadastroProduto extends javax.swing.JFrame {
         initComponents();
     }
     
-    public void PopularJTable(String sql) {
-    try
-  {
-   Connection con=(Connection)DriverManager.getConnection("jdbc:mysql://localhost:3307/fashionfoot", "ff_layson", "123456");
-   PreparedStatement banco = (PreparedStatement)con.prepareStatement(sql);
-   banco.execute(); 
- 
-   ResultSet resultado = banco.executeQuery(sql);
- 
-   DefaultTableModel model =(DefaultTableModel) jTable1.getModel();
-   model.setNumRows(0);
- 
-   while(resultado.next())
-   {
-       model.addRow(new Object[] 
-       { 
-          //retorna os dados da tabela do BD, cada campo e um coluna.
-          //codigo,nome,condicao,tamanho,unidades,categoria,preco,valor_venda,peso,descricao
-          resultado.getString("id"),
-          resultado.getString("codigo"),
-          resultado.getString("nome"),
-          resultado.getString("condicao"),
-          resultado.getString("tamanho"),
-          resultado.getString("unidades"),
-          resultado.getString("categoria"),
-          resultado.getString("preco"),
-          resultado.getString("valor_venda"),
-          resultado.getString("peso"),
-          resultado.getString("descricao")
-       }); 
-  } 
-   banco.close();
-   con.close();
-  }
- catch (SQLException ex)
- {
-    System.out.println("o erro foi " +ex);
-  }
- }
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -113,17 +75,6 @@ public class Layson_Tela_CadastroProduto extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         descricao_produto = new javax.swing.JTextArea();
         Bt_Inserir_CadastroDeProduto = new javax.swing.JButton();
-        botao_cadastrar = new javax.swing.JButton();
-        jPanel6 = new javax.swing.JPanel();
-        txt_ID_Deletar_CadastroDeProduto = new javax.swing.JTextField();
-        jLabel13 = new javax.swing.JLabel();
-        Bt_Deletar_CadastroDeProduto = new javax.swing.JButton();
-        jPanel7 = new javax.swing.JPanel();
-        jLabel12 = new javax.swing.JLabel();
-        Bt_Atualizar_CadastroDeProduto = new javax.swing.JButton();
-        txt_ID_Atualizar_CadastroDeProduto = new javax.swing.JTextField();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
@@ -380,124 +331,6 @@ public class Layson_Tela_CadastroProduto extends javax.swing.JFrame {
             }
         });
 
-        botao_cadastrar.setBackground(new java.awt.Color(17, 69, 139));
-        botao_cadastrar.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        botao_cadastrar.setForeground(new java.awt.Color(255, 255, 255));
-        botao_cadastrar.setText("Export");
-        botao_cadastrar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                botao_cadastrarActionPerformed(evt);
-            }
-        });
-
-        jPanel6.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel6.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-
-        txt_ID_Deletar_CadastroDeProduto.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txt_ID_Deletar_CadastroDeProdutoActionPerformed(evt);
-            }
-        });
-
-        jLabel13.setText("ID");
-
-        Bt_Deletar_CadastroDeProduto.setBackground(new java.awt.Color(204, 204, 204));
-        Bt_Deletar_CadastroDeProduto.setText("Deletar");
-        Bt_Deletar_CadastroDeProduto.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Bt_Deletar_CadastroDeProdutoActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
-        jPanel6.setLayout(jPanel6Layout);
-        jPanel6Layout.setHorizontalGroup(
-            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel6Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(Bt_Deletar_CadastroDeProduto)
-                    .addGroup(jPanel6Layout.createSequentialGroup()
-                        .addComponent(jLabel13)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txt_ID_Deletar_CadastroDeProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        jPanel6Layout.setVerticalGroup(
-            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txt_ID_Deletar_CadastroDeProduto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel13))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(Bt_Deletar_CadastroDeProduto)
-                .addContainerGap())
-        );
-
-        jPanel7.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel7.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-
-        jLabel12.setText("ID");
-
-        Bt_Atualizar_CadastroDeProduto.setBackground(new java.awt.Color(17, 69, 139));
-        Bt_Atualizar_CadastroDeProduto.setForeground(new java.awt.Color(255, 255, 255));
-        Bt_Atualizar_CadastroDeProduto.setText("Atualizar");
-        Bt_Atualizar_CadastroDeProduto.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Bt_Atualizar_CadastroDeProdutoActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
-        jPanel7.setLayout(jPanel7Layout);
-        jPanel7Layout.setHorizontalGroup(
-            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel7Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel7Layout.createSequentialGroup()
-                        .addComponent(jLabel12)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txt_ID_Atualizar_CadastroDeProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 1, Short.MAX_VALUE))
-                    .addComponent(Bt_Atualizar_CadastroDeProduto))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        jPanel7Layout.setVerticalGroup(
-            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
-                .addContainerGap(8, Short.MAX_VALUE)
-                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txt_ID_Atualizar_CadastroDeProduto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel12))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(Bt_Atualizar_CadastroDeProduto)
-                .addGap(4, 4, 4))
-        );
-
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-
-            },
-            new String [] {
-                "ID", "Código", "Nome", "Condição", "Tamanho", "Unidades", "Categoria", "Preço", "Valor Venda", "Peso", "Descrição"
-            }
-        ) {
-            boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false, false, false, false, false, false
-            };
-
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
-            }
-        });
-        jTable1.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                Clique(evt);
-            }
-        });
-        jScrollPane2.setViewportView(jTable1);
-
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -508,19 +341,12 @@ public class Layson_Tela_CadastroProduto extends javax.swing.JFrame {
                 .addGap(32, 32, 32)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel11)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 506, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 938, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(18, Short.MAX_VALUE))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 506, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(450, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(botao_cadastrar)
-                .addGap(37, 37, 37)
-                .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(30, 30, 30)
-                .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(53, 53, 53)
                 .addComponent(Bt_Inserir_CadastroDeProduto)
-                .addGap(31, 31, 31))
+                .addGap(44, 44, 44))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -528,24 +354,13 @@ public class Layson_Tela_CadastroProduto extends javax.swing.JFrame {
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(10, 10, 10)
-                        .addComponent(jLabel11)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 257, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(Bt_Inserir_CadastroDeProduto)
-                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(botao_cadastrar)))
-                .addContainerGap())
+                .addGap(10, 10, 10)
+                .addComponent(jLabel11)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(39, 39, 39)
+                .addComponent(Bt_Inserir_CadastroDeProduto)
+                .addContainerGap(18, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -561,40 +376,12 @@ public class Layson_Tela_CadastroProduto extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 803, Short.MAX_VALUE)
+                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 493, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void botao_cadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botao_cadastrarActionPerformed
-        try {
-            // TODO add your handling code here:
-            FileWriter arq = new FileWriter("C:\\Users\\aluno\\Desktop\\CADASTRO.txt");
-            PrintWriter gravarArq = new PrintWriter(arq);
-            
-            gravarArq.printf("|-------------CADASTRO DE PRODUTO------------|");
-            gravarArq.printf("\nCodigo: " + txt_cod_produto.getText() + "     |");
-            gravarArq.printf("\nNome: " + txt_nome_produto.getText() + "      |");
-            gravarArq.printf("\nCondição: " + condicao_produto.getSelectedItem().toString());
-            gravarArq.printf("\nTamanho: " + tamanho_produto.getSelectedItem().toString());
-            gravarArq.printf("\nUnidade: " + unidades_produto.getText());
-            gravarArq.printf("\nCategoria: " + categoria_produto.getSelectedItem().toString());
-            gravarArq.printf("\nPreço: " + preco_produto.getText());
-            gravarArq.printf("\nValor de venda: " + valor_produto.getText());
-            gravarArq.printf("\nPeso: " + peso_produto.getText());
-            gravarArq.printf("\n----------------------------------------------");
-            gravarArq.printf("\n<<DESCRIÇÃO DO PRODUTO>> " + "\n" + descricao_produto.getText());
-            gravarArq.printf("\n----------------------------------------------");
-            
-            arq.close();
-            
-        } catch (IOException ex) {
-            Logger.getLogger(Layson_Tela_CadastroProduto.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        
-    }//GEN-LAST:event_botao_cadastrarActionPerformed
 
     private void valor_produtoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_valor_produtoActionPerformed
         // TODO add your handling code here:
@@ -662,7 +449,6 @@ public class Layson_Tela_CadastroProduto extends javax.swing.JFrame {
             
             if (linhasAfetadas > 0) {
                  JOptionPane.showMessageDialog(rootPane,"Dados inseridos com sucesso!");
-                 this.PopularJTable("SELECT * FROM cadastro_produto ORDER BY id");
             } else {
                  JOptionPane.showMessageDialog(rootPane,"Nenhum dado inserido.");
             }
@@ -686,107 +472,6 @@ public class Layson_Tela_CadastroProduto extends javax.swing.JFrame {
         
     }//GEN-LAST:event_Bt_Inserir_CadastroDeProdutoActionPerformed
 
-    private void Bt_Atualizar_CadastroDeProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Bt_Atualizar_CadastroDeProdutoActionPerformed
-       
-         Connection conexao = null;
-            
-            String url = "jdbc:mysql://localhost:3307/fashionfoot";
-            String usuario =  "ff_layson";
-            String senha = "123456";
-        
-        try {
- 
-            conexao = DriverManager.getConnection(url, usuario, senha);
-            
-            String sql = "UPDATE cadastro_produto SET codigo = ? , nome = ? , condicao = ? , tamanho = ? , unidades = ? , categoria = ? , preco = ? , valor_venda = ? , peso = ? , descricao = ?  where id = ?";
-            
-            
-            statement = conexao.prepareStatement(sql);
-            statement.setString(1, txt_cod_produto.getText());
-            statement.setString(2, txt_nome_produto.getText());
-            statement.setString(3, condicao_produto.getSelectedItem().toString());
-            statement.setString(4, tamanho_produto.getSelectedItem().toString());
-            statement.setString(5, unidades_produto.getText());
-            statement.setString(6, categoria_produto.getSelectedItem().toString());
-            statement.setString(7, preco_produto.getText());
-            statement.setString(8, valor_produto.getText());
-            statement.setString(9, peso_produto.getText());
-            statement.setString(10, descricao_produto.getText());
-            statement.setString(11, txt_ID_Atualizar_CadastroDeProduto.getText());
-            
-            int linhasAfetadas = statement.executeUpdate();
-            
-            if (linhasAfetadas > 0) {
-                JOptionPane.showMessageDialog(rootPane,"Dados atualizados com sucesso!");
-                this.PopularJTable("SELECT * FROM cadastro_produto ORDER BY id");
-            } else {
-                JOptionPane.showMessageDialog(rootPane,"Nenhum dado atualizado.");
-            }
-            
-        } catch (SQLException ex) {
-            Logger.getLogger(Layson_Tela_CadastroProduto.class.getName()).log(Level.SEVERE, null, ex);
-        } finally {
-            try {
-                if (statement != null) {
-                    statement.close();
-                }
-                if (conexao != null) {
-                    conexao.close();
-                }
-                   
-            } catch (SQLException e) {
-                JOptionPane.showMessageDialog(rootPane, "Erro ao fechar conexão: " + e.getMessage());
-            }        
-        }
-        
-    }//GEN-LAST:event_Bt_Atualizar_CadastroDeProdutoActionPerformed
-
-    private void txt_ID_Deletar_CadastroDeProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_ID_Deletar_CadastroDeProdutoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txt_ID_Deletar_CadastroDeProdutoActionPerformed
-
-    private void Bt_Deletar_CadastroDeProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Bt_Deletar_CadastroDeProdutoActionPerformed
-         
-        Connection conexao = null;
-            
-            String url = "jdbc:mysql://localhost:3307/fashionfoot";
-            String usuario =  "ff_layson";
-            String senha = "123456";
-        
-        try {
- 
-            conexao = DriverManager.getConnection(url, usuario, senha);
-            
-            String sql = "DELETE from cadastro_produto where id = ?";
-            
-            statement = conexao.prepareStatement(sql);
-            statement.setString(1,txt_ID_Deletar_CadastroDeProduto.getText());
-            
-             int linhasAfetadas = statement.executeUpdate();
-            
-            if(linhasAfetadas > 0){
-                JOptionPane.showMessageDialog(rootPane,"Dados excluidos com sucesso!");
-                this.PopularJTable("SELECT * FROM cadastro_produto ORDER BY id");
-            } else {
-                JOptionPane.showMessageDialog(rootPane,"Nenhum dado excluido.");
-            }
-        } catch (SQLException ex) {
-            Logger.getLogger(Layson_Tela_CadastroProduto.class.getName()).log(Level.SEVERE, null, ex);
-        } finally {
-            try {
-                if (statement != null) {
-                    statement.close();
-                }
-                if (conexao != null) {
-                    conexao.close();
-                }
-            } catch (SQLException ex) {
-                Logger.getLogger(Layson_Tela_CadastroProduto.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        }
-          
-    }//GEN-LAST:event_Bt_Deletar_CadastroDeProdutoActionPerformed
-
     private void Select(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_Select
         // TODO add your handling code here:
          Connection conexao = null;
@@ -800,27 +485,11 @@ public class Layson_Tela_CadastroProduto extends javax.swing.JFrame {
         try {
             conexao = DriverManager.getConnection(url, usuario, senha);
            
-            this.PopularJTable("SELECT * FROM cadastro_produto ORDER BY ID");
         } catch (SQLException ex) {
             
            // Logger.getLogger(Tela_Inicial.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_Select
-
-    private void Clique(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Clique
-        // TODO add your handling code here:
-        int linha = jTable1.getSelectedRow(); // retorna a linha selecionada pelo usuario
-        txt_ID_Atualizar_CadastroDeProduto.setText(jTable1.getValueAt(linha,0).toString());
-        txt_cod_produto.setText(jTable1.getValueAt(linha,1).toString());
-        txt_nome_produto.setText(jTable1.getValueAt(linha,2).toString());
-        unidades_produto.setText(jTable1.getValueAt(linha,5).toString());
-        preco_produto.setText(jTable1.getValueAt(linha,7).toString());
-        valor_produto.setText(jTable1.getValueAt(linha,8).toString());
-        peso_produto.setText(jTable1.getValueAt(linha,9).toString());
-        descricao_produto.setText(jTable1.getValueAt(linha, 10).toString());
-        
-        
-    }//GEN-LAST:event_Clique
 
     /**
      * @param args the command line arguments
@@ -860,10 +529,7 @@ public class Layson_Tela_CadastroProduto extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Bot_voltar_cadastroProd;
-    private javax.swing.JButton Bt_Atualizar_CadastroDeProduto;
-    private javax.swing.JButton Bt_Deletar_CadastroDeProduto;
     private javax.swing.JButton Bt_Inserir_CadastroDeProduto;
-    private javax.swing.JButton botao_cadastrar;
     private javax.swing.JComboBox<String> categoria_produto;
     private javax.swing.JComboBox<String> condicao_produto;
     private javax.swing.JTextArea descricao_produto;
@@ -871,8 +537,6 @@ public class Layson_Tela_CadastroProduto extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -885,16 +549,10 @@ public class Layson_Tela_CadastroProduto extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
-    private javax.swing.JPanel jPanel6;
-    private javax.swing.JPanel jPanel7;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTable jTable1;
     private javax.swing.JTextField peso_produto;
     private javax.swing.JTextField preco_produto;
     private javax.swing.JComboBox<String> tamanho_produto;
-    private javax.swing.JTextField txt_ID_Atualizar_CadastroDeProduto;
-    private javax.swing.JTextField txt_ID_Deletar_CadastroDeProduto;
     private javax.swing.JTextField txt_cod_produto;
     private javax.swing.JTextField txt_nome_produto;
     private javax.swing.JTextField unidades_produto;
