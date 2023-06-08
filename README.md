@@ -35,7 +35,7 @@ Login:
 - Organizar lista
 
 # Alterar senha:
-- Alterar a senha de fato
+- Alterar a senha de fato :heavy_check_mark:
 
 # Geral:
 - Mudar as datas para o tipo DATE e fazer lógica no código
