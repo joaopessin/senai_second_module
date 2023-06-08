@@ -10,7 +10,7 @@
 - Revisar completamente (criar conta)
 
 Login:
-- Mudar acesso de login para cpf
+- Mudar acesso de login para cpf :heavy_check_mark:
 
 # Dicionario:
 - Adicionar cadastro de produto
