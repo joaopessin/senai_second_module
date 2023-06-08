@@ -22,7 +22,7 @@ CREATE TABLE cliente(
 id INT AUTO_INCREMENT PRIMARY KEY,
 senha CHAR(14) NOT NULL,
 nome_completo VARCHAR (255) NOT NULL,
-data_nasc INT NOT NULL,
+data_nasc DATE NOT NULL,
 telefone INT(11) NOT NULL,
 cpf CHAR (14) NOT NULL,
 email VARCHAR(255) NOT NULL,
