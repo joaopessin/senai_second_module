@@ -2,7 +2,7 @@
 
 # Cadastro Funcionario
 - Colocar campo de senha :heavy_check_mark:
-- Validar data nascimento;
+- Validar data nascimento; :heavy_check_mark:
 - Botão Export;
 - Sumário errado (documentação)
 
@@ -38,7 +38,7 @@ Login:
 - Alterar a senha de fato :heavy_check_mark:
 
 # Geral:
-- Mudar as datas para o tipo DATE e fazer lógica no código
+- Mudar as datas para o tipo DATE e fazer lógica no código 
 - Validação de CPF / RG
 - Mudar nome dos arquivos (coerente)
 - Implementar botões de inserir
