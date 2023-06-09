@@ -17,7 +17,7 @@ Login:
 
 # Acesso ao produto:
 - Listar produtos cadastrados
-- Comentario
+- Comentario :heavy_check_mark:
 
 # Criar conta:
 - Unificar o banco/tela do cliente / funcionario e fazer um tipo para cada dentro da tabela
