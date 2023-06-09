@@ -7,7 +7,7 @@
 - Sumário errado (documentação)
 
 # Caso de Uso:
-- Revisar completamente (criar conta)
+- Revisar completamente (criar conta) :arrows_counterclockwise:
 
 Login:
 - Mudar acesso de login para cpf :heavy_check_mark:
