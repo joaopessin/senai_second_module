@@ -4,6 +4,11 @@
  */
 package pkg04_01_exercise;
 
+import javax.swing.JOptionPane;
+
+
+
+
 /**
  *
  * @author marce
@@ -169,15 +174,24 @@ public class Menu_funcionario extends javax.swing.JFrame {
     private void Funcionario_btn_cadastrarProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Funcionario_btn_cadastrarProdutoActionPerformed
         // TODO add your handling code here:
         Menu_funcionario.this.dispose();
-        Layson_Tela_CadastroProduto cadastroProduto = new Layson_Tela_CadastroProduto();
+        Cadastro_de_Produto cadastroProduto = new Cadastro_de_Produto();
         cadastroProduto.setVisible(true);
     }//GEN-LAST:event_Funcionario_btn_cadastrarProdutoActionPerformed
 
     private void Funcionario_btn_sairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Funcionario_btn_sairActionPerformed
         // TODO add your handling code here:
+        String[] opcoes = {"Sim", "Não"};
+        int resposta = JOptionPane.showOptionDialog(rootPane, "Tem certeza que desja sair?", "Confirmação", JOptionPane.DEFAULT_OPTION, JOptionPane.QUESTION_MESSAGE, null, opcoes, opcoes[0]);
+        
+        if (resposta == JOptionPane.YES_OPTION) {
+            
         Menu_funcionario.this.dispose();
-        Layson_tela_login login = new Layson_tela_login();
+        Login login = new Login();
         login.setVisible(true);
+        
+        } else {
+            
+        }
 
     }//GEN-LAST:event_Funcionario_btn_sairActionPerformed
 

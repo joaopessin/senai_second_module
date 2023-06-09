@@ -1,5 +1,6 @@
 package pkg04_01_exercise;
 
+import pkg04_01_exercise.Cadastro_de_Produto;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -19,7 +20,7 @@ public class Estoque extends javax.swing.JFrame {
     public void PopularJTable(String sql) {
     try
   {
-   Connection con=(Connection)DriverManager.getConnection("jdbc:mysql://localhost:3307/fashion_foot", "ff_lucas", "123456");
+   Connection con=(Connection)DriverManager.getConnection("jdbc:mysql://localhost:3307/fashion_foot", "ff_layson", "123456");
    PreparedStatement banco = (PreparedStatement)con.prepareStatement(sql);
    banco.execute(); 
  
@@ -37,13 +38,14 @@ public class Estoque extends javax.swing.JFrame {
           resultado.getString("id"),
           resultado.getString("codigo"),
           resultado.getString("nome"),
-          resultado.getString("unidade"),
-          resultado.getString("valor_inicial"),
-          resultado.getString("valor_frete"),
-          resultado.getString("valor_total"),
-          resultado.getString("total_vendas"),
-          resultado.getString("cod_barra"),
-          resultado.getString("tipo_produto"),
+          resultado.getString("condicao"),
+          resultado.getString("tamanho"),
+          resultado.getString("unidades"),
+          resultado.getString("categoria"),
+          resultado.getString("preco"),
+          resultado.getString("valor_venda"),
+          resultado.getString("peso"),
+          resultado.getString("descricao")
        }); 
   } 
    banco.close();
@@ -65,18 +67,6 @@ public class Estoque extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         cod_produto = new javax.swing.JTextField();
-        jLabel3 = new javax.swing.JLabel();
-        nome_produto = new javax.swing.JTextField();
-        jLabel4 = new javax.swing.JLabel();
-        unidades_estoque = new javax.swing.JTextField();
-        jLabel5 = new javax.swing.JLabel();
-        val_inicial_estoque = new javax.swing.JTextField();
-        jLabel7 = new javax.swing.JLabel();
-        total_vendas_estoque = new javax.swing.JTextField();
-        jLabel8 = new javax.swing.JLabel();
-        cod_barra_estoque = new javax.swing.JTextField();
-        tipo_estoque = new javax.swing.JTextField();
-        jLabel9 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         Tabela_Estoque = new javax.swing.JTable();
         jPanel7 = new javax.swing.JPanel();
@@ -87,11 +77,26 @@ public class Estoque extends javax.swing.JFrame {
         txt_ID_Deletar_CadastroDeProduto = new javax.swing.JTextField();
         jLabel13 = new javax.swing.JLabel();
         Bt_Deletar = new javax.swing.JButton();
-        val_estoque_fret = new javax.swing.JTextField();
-        jLabel11 = new javax.swing.JLabel();
-        Bt_Inserir = new javax.swing.JButton();
-        val_total = new javax.swing.JTextField();
-        jLabel14 = new javax.swing.JLabel();
+        jLabel15 = new javax.swing.JLabel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        descricao_estoque = new javax.swing.JTextArea();
+        jLabel6 = new javax.swing.JLabel();
+        peso_estoque = new javax.swing.JTextField();
+        tamanho_produto = new javax.swing.JComboBox<>();
+        jLabel16 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        nome_produto = new javax.swing.JTextField();
+        jLabel9 = new javax.swing.JLabel();
+        preco_estoque = new javax.swing.JTextField();
+        jLabel10 = new javax.swing.JLabel();
+        valor_total_estoque = new javax.swing.JTextField();
+        condicao_estoque = new javax.swing.JComboBox<>();
+        categoria_estoque = new javax.swing.JComboBox<>();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        unidade_estoque = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
@@ -150,65 +155,12 @@ public class Estoque extends javax.swing.JFrame {
             }
         });
 
-        jLabel3.setFont(new java.awt.Font("Arial", 1, 16)); // NOI18N
-        jLabel3.setText("Nome Produto");
-
-        jLabel4.setFont(new java.awt.Font("Arial", 1, 16)); // NOI18N
-        jLabel4.setText("Unidade");
-
-        unidades_estoque.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        unidades_estoque.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                unidades_estoqueActionPerformed(evt);
-            }
-        });
-
-        jLabel5.setFont(new java.awt.Font("Arial", 1, 16)); // NOI18N
-        jLabel5.setText("Val. Inicial");
-
-        val_inicial_estoque.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        val_inicial_estoque.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                val_inicial_estoqueActionPerformed(evt);
-            }
-        });
-
-        jLabel7.setFont(new java.awt.Font("Arial", 1, 16)); // NOI18N
-        jLabel7.setText("Tot. Vendas");
-
-        total_vendas_estoque.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        total_vendas_estoque.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                total_vendas_estoqueActionPerformed(evt);
-            }
-        });
-
-        jLabel8.setFont(new java.awt.Font("Arial", 1, 16)); // NOI18N
-        jLabel8.setText("Cód. Barra");
-
-        cod_barra_estoque.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        cod_barra_estoque.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cod_barra_estoqueActionPerformed(evt);
-            }
-        });
-
-        tipo_estoque.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        tipo_estoque.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                tipo_estoqueActionPerformed(evt);
-            }
-        });
-
-        jLabel9.setFont(new java.awt.Font("Arial", 1, 16)); // NOI18N
-        jLabel9.setText("Tip. Produto");
-
         Tabela_Estoque.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "ID", "Código", "Nome", "Unidade", "Val. Inicial", "Val. Frete", "Val. Total", "Tot. Vendas", "Cód. Barra", "Tip. Produto"
+                "ID", "Código", "Nome", "Condição", "Tamanho", "Unidades", "Categoria", "Preço", "Valor Venda", "Peso", "Descrição"
             }
         ));
         Tabela_Estoque.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -303,142 +255,239 @@ public class Estoque extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        val_estoque_fret.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        val_estoque_fret.addActionListener(new java.awt.event.ActionListener() {
+        jLabel15.setFont(new java.awt.Font("Arial", 1, 15)); // NOI18N
+        jLabel15.setText("Descricão do produto");
+
+        descricao_estoque.setColumns(20);
+        descricao_estoque.setRows(5);
+        descricao_estoque.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jScrollPane2.setViewportView(descricao_estoque);
+
+        jLabel6.setFont(new java.awt.Font("Arial", 1, 16)); // NOI18N
+        jLabel6.setText("Peso");
+
+        peso_estoque.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        peso_estoque.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                val_estoque_fretActionPerformed(evt);
+                peso_estoqueActionPerformed(evt);
             }
         });
 
-        jLabel11.setFont(new java.awt.Font("Arial", 1, 16)); // NOI18N
-        jLabel11.setText("Val. Frete");
-
-        Bt_Inserir.setBackground(new java.awt.Color(17, 69, 139));
-        Bt_Inserir.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        Bt_Inserir.setForeground(new java.awt.Color(255, 255, 255));
-        Bt_Inserir.setText("Inserir");
-        Bt_Inserir.addActionListener(new java.awt.event.ActionListener() {
+        tamanho_produto.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        tamanho_produto.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Não especificado", "Pequeno", "Médio", "Grande" }));
+        tamanho_produto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Bt_InserirActionPerformed(evt);
+                tamanho_produtoActionPerformed(evt);
             }
         });
 
-        val_total.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        val_total.addActionListener(new java.awt.event.ActionListener() {
+        jLabel16.setFont(new java.awt.Font("Arial", 1, 16)); // NOI18N
+        jLabel16.setText("Tamanho");
+
+        jLabel8.setFont(new java.awt.Font("Arial", 1, 16)); // NOI18N
+        jLabel8.setText("Nome Produto");
+
+        nome_produto.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        nome_produto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                val_totalActionPerformed(evt);
+                nome_produtoActionPerformed(evt);
             }
         });
 
-        jLabel14.setFont(new java.awt.Font("Arial", 1, 16)); // NOI18N
-        jLabel14.setText("Val. Total");
+        jLabel9.setFont(new java.awt.Font("Arial", 1, 16)); // NOI18N
+        jLabel9.setText("Preço");
+
+        preco_estoque.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        preco_estoque.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                preco_estoqueActionPerformed(evt);
+            }
+        });
+
+        jLabel10.setFont(new java.awt.Font("Arial", 1, 16)); // NOI18N
+        jLabel10.setText("Val. Venda");
+
+        valor_total_estoque.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        valor_total_estoque.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                valor_total_estoqueActionPerformed(evt);
+            }
+        });
+
+        condicao_estoque.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        condicao_estoque.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Não especificado", "Novo", "Usado", "Danificado" }));
+
+        categoria_estoque.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        categoria_estoque.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Não especificado", "Esportivo", "Casual", "Social" }));
+        categoria_estoque.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                categoria_estoqueActionPerformed(evt);
+            }
+        });
+
+        jLabel4.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+
+        jLabel3.setFont(new java.awt.Font("Arial", 1, 16)); // NOI18N
+        jLabel3.setText("Condição");
+
+        jLabel5.setFont(new java.awt.Font("Arial", 1, 16)); // NOI18N
+        jLabel5.setText("Categoria");
+
+        jLabel7.setFont(new java.awt.Font("Arial", 1, 16)); // NOI18N
+        jLabel7.setText("Unidade");
+
+        unidade_estoque.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        unidade_estoque.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                unidade_estoqueActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(71, 71, 71)
-                .addComponent(Bt_Inserir, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(76, 76, 76)
-                .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(334, 334, 334))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addGap(0, 76, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 929, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(70, 70, 70))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addGap(56, 56, 56)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(cod_produto))
+                .addGap(116, 116, 116)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                        .addGap(46, 46, 46)
-                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(32, 32, 32)
-                        .addComponent(nome_produto, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(26, 26, 26)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(unidades_estoque, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(val_inicial_estoque, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(val_estoque_fret, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(val_total, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(14, 14, 14)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, 99, Short.MAX_VALUE)
-                    .addComponent(total_vendas_estoque))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, 90, Short.MAX_VALUE)
-                    .addComponent(cod_barra_estoque))
-                .addGap(30, 30, 30)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE)
-                    .addComponent(tipo_estoque))
-                .addGap(19, 19, 19))
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 929, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(219, 219, 219)
+                                .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(317, 317, 317)))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(peso_estoque)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18))
+                            .addComponent(cod_produto)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(20, 20, 20))
+                            .addComponent(unidade_estoque, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addGap(26, 26, 26)
+                                .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPanel2Layout.createSequentialGroup()
+                                        .addGap(84, 84, 84)
+                                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(preco_estoque, javax.swing.GroupLayout.DEFAULT_SIZE, 161, Short.MAX_VALUE)
+                                            .addComponent(nome_produto)
+                                            .addComponent(valor_total_estoque)))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                                                .addComponent(jLabel8)
+                                                .addGap(28, 28, 28))
+                                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                                                .addComponent(jLabel9)
+                                                .addGap(65, 65, 65)))))
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPanel2Layout.createSequentialGroup()
+                                        .addGap(94, 94, 94)
+                                        .addComponent(jLabel5))
+                                    .addGroup(jPanel2Layout.createSequentialGroup()
+                                        .addGap(68, 68, 68)
+                                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                                .addComponent(tamanho_produto, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                .addGroup(jPanel2Layout.createSequentialGroup()
+                                                    .addGap(20, 20, 20)
+                                                    .addComponent(jLabel16)))
+                                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                                .addComponent(categoria_estoque, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                .addGroup(jPanel2Layout.createSequentialGroup()
+                                                    .addGap(29, 29, 29)
+                                                    .addComponent(jLabel3)
+                                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                    .addComponent(jLabel4))
+                                                .addComponent(condicao_estoque, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
+                                .addGap(60, 60, 60))
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addGap(122, 122, 122)
+                                .addComponent(jLabel10)
+                                .addGap(76, 293, Short.MAX_VALUE)))
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel15)
+                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 279, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(137, 137, 137))))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(24, 24, 24)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addGap(25, 25, 25)
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addGroup(jPanel2Layout.createSequentialGroup()
+                                        .addComponent(jLabel2)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(cod_produto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(jPanel2Layout.createSequentialGroup()
+                                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                            .addComponent(jLabel8)
+                                            .addComponent(jLabel3))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(nome_produto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(condicao_estoque, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addGap(26, 26, 26)
+                                .addComponent(jLabel4)))
+                        .addGap(12, 12, 12)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel9)
+                            .addComponent(jLabel6)
+                            .addComponent(jLabel5))
+                        .addGap(6, 6, 6)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(peso_estoque, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(preco_estoque, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addGap(1, 1, 1)
+                                .addComponent(categoria_estoque, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(26, 26, 26)
+                        .addComponent(jLabel15)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanel2Layout.createSequentialGroup()
+                            .addGap(18, 18, 18)
+                            .addComponent(jLabel10)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(valor_total_estoque, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(jLabel7)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(unidade_estoque, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(jLabel8)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(cod_barra_estoque, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel2)
-                            .addComponent(jLabel4)
-                            .addComponent(jLabel3)
-                            .addComponent(jLabel5)
-                            .addComponent(jLabel7))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(cod_produto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(nome_produto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(unidades_estoque, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(val_inicial_estoque, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(total_vendas_estoque, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(jLabel9)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(tipo_estoque, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(jLabel11)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(val_estoque_fret, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(jLabel14)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(val_total, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(65, 65, 65)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jPanel7, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(Bt_Inserir)
-                        .addGap(50, 50, 50)))
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel16)
+                        .addGap(10, 10, 10)
+                        .addComponent(tamanho_produto, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(36, 36, 36)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel7, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -446,10 +495,7 @@ public class Estoque extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -463,32 +509,10 @@ public class Estoque extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void cod_produtoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cod_produtoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_cod_produtoActionPerformed
-
-    private void unidades_estoqueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_unidades_estoqueActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_unidades_estoqueActionPerformed
-
-    private void val_inicial_estoqueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_val_inicial_estoqueActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_val_inicial_estoqueActionPerformed
-
-    private void total_vendas_estoqueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_total_vendas_estoqueActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_total_vendas_estoqueActionPerformed
-
-    private void cod_barra_estoqueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cod_barra_estoqueActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_cod_barra_estoqueActionPerformed
-
-    private void tipo_estoqueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tipo_estoqueActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_tipo_estoqueActionPerformed
-
     private void Bt_Voltar_FuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Bt_Voltar_FuncionarioActionPerformed
-        
+        Estoque.this.dispose();
+        Menu_funcionario menuFuncionario = new Menu_funcionario();
+        menuFuncionario.setVisible(true);
     }//GEN-LAST:event_Bt_Voltar_FuncionarioActionPerformed
 
     private void Bt_AtualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Bt_AtualizarActionPerformed
@@ -499,34 +523,36 @@ public class Estoque extends javax.swing.JFrame {
         String usuario =  "ff_lucas";
         String senha = "123456";
 
-        try {
+       try {
 
             conexao = DriverManager.getConnection(url, usuario, senha);
 
-            String sql = "UPDATE estoque SET codigo = ? , nome = ? , unidade = ? , valor_inicial = ? , valor_frete = ? , valor_total   = ? , total_vendas = ?, cod_barra = ?, tipo_produto = ? where id = ?";
+            String sql = "UPDATE cadastro_produto SET codigo = ? , nome = ? , condicao = ? , tamanho = ? , unidades = ? , categoria = ? , preco = ? , valor_venda = ? , peso = ? , descricao = ?  where id = ?";
 
             statement = conexao.prepareStatement(sql);
             statement.setString(1, cod_produto.getText());
             statement.setString(2, nome_produto.getText());
-            statement.setString(3, unidades_estoque.getText());
-            statement.setString(4, val_inicial_estoque.getText());
-            statement.setString(5, val_estoque_fret.getText());
-            statement.setString(6, val_total.getText());
-            statement.setString(7, total_vendas_estoque.getText());
-            statement.setString(8, cod_barra_estoque.getText());
-            statement.setString(9, tipo_estoque.getText());
-            
+            statement.setString(3, condicao_estoque.getSelectedItem().toString());
+            statement.setString(4, tamanho_produto.getSelectedItem().toString());
+            statement.setString(5, unidade_estoque.getText());
+            statement.setString(6, categoria_estoque.getSelectedItem().toString());
+            statement.setString(7, preco_estoque.getText());
+            statement.setString(8, valor_total_estoque.getText());
+            statement.setString(9, peso_estoque.getText());
+            statement.setString(10, descricao_estoque.getText());
+            statement.setString(11, txt_ID_Atualizar_CadastroDeProduto.getText());
+
             int linhasAfetadas = statement.executeUpdate();
 
             if (linhasAfetadas > 0) {
                 JOptionPane.showMessageDialog(rootPane,"Dados atualizados com sucesso!");
-                this.PopularJTable("SELECT * FROM estoque ORDER BY id");
+                this.PopularJTable("SELECT * FROM cadastro_produto ORDER BY id");
             } else {
                 JOptionPane.showMessageDialog(rootPane,"Nenhum dado atualizado.");
             }
 
         } catch (SQLException ex) {
-            System.out.println("Erro ao atualizar dados: " + ex.getMessage());
+            Logger.getLogger(Cadastro_de_Produto.class.getName()).log(Level.SEVERE, null, ex);
         } finally {
             try {
                 if (statement != null) {
@@ -540,7 +566,6 @@ public class Estoque extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(rootPane, "Erro ao fechar conexão: " + e.getMessage());
             }
         }
-
     }//GEN-LAST:event_Bt_AtualizarActionPerformed
 
     private void txt_ID_Deletar_CadastroDeProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_ID_Deletar_CadastroDeProdutoActionPerformed
@@ -559,7 +584,7 @@ public class Estoque extends javax.swing.JFrame {
 
             conexao = DriverManager.getConnection(url, usuario, senha);
 
-            String sql = "DELETE from estoque where id = ?";
+            String sql = "DELETE from cadastro_produto where id = ?";
 
             statement = conexao.prepareStatement(sql);
             statement.setString(1,txt_ID_Deletar_CadastroDeProduto.getText());
@@ -568,7 +593,7 @@ public class Estoque extends javax.swing.JFrame {
 
             if(linhasAfetadas > 0){
                 JOptionPane.showMessageDialog(rootPane,"Dados excluidos com sucesso!");
-                this.PopularJTable("SELECT * FROM estoque ORDER BY id");
+                this.PopularJTable("SELECT * FROM cadastro_produto ORDER BY id");
             } else {
                 JOptionPane.showMessageDialog(rootPane,"Nenhum dado excluido.");
             }
@@ -589,66 +614,6 @@ public class Estoque extends javax.swing.JFrame {
 
     }//GEN-LAST:event_Bt_DeletarActionPerformed
 
-    private void val_estoque_fretActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_val_estoque_fretActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_val_estoque_fretActionPerformed
-
-    private void Bt_InserirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Bt_InserirActionPerformed
-        Connection conexao = null;
-        PreparedStatement statement = null;
-       
-        String url = "jdbc:mysql://localhost:3308/fashion_foot";
-        String usuario = "ff_lucas";
-        String senha = "123456";
-        
-        try {
-            conexao = DriverManager.getConnection(url, usuario, senha);
-           
-            String sql = "INSERT INTO estoque (codigo, nome, unidade, valor_inicial, valor_frete, valor_total, total_vendas, cod_barra, tipo_produto) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
-        
-            statement = conexao.prepareStatement(sql);
-            
-            statement.setInt(1, Integer.parseInt(cod_produto.getText()));
-            statement.setString(2, nome_produto.getText());
-            statement.setInt(3, Integer.parseInt(unidades_estoque.getText()));
-            statement.setDouble(4, Double.parseDouble(val_inicial_estoque.getText()));
-            statement.setDouble(5, Double.parseDouble(val_estoque_fret.getText()));
-            statement.setDouble(6, Double.parseDouble(val_total.getText()));
-            statement.setInt(7, Integer.parseInt(total_vendas_estoque.getText()));
-            statement.setInt(8, Integer.parseInt(cod_barra_estoque.getText()));
-            statement.setString(9, tipo_estoque.getText());
-            
-            int linhasAfetadas = statement.executeUpdate();
-           
-            if (linhasAfetadas > 0) {
-                System.out.println("Dados inseridos com sucesso!");
-                this.PopularJTable("SELECT * FROM estoque id");
-                
-            } else {
-                System.out.println("Nenhum dado inserido.");
-                
-            }
-        } catch (SQLException e) {
-            System.out.println("Erro ao inserir dados: " + e.getMessage());
-            
-        } finally {
-            try {
-            if (statement != null) {
-                statement.close();
-                }
-            if (conexao != null) {
-                conexao.close();
-            }
-        } catch (SQLException e) {
-        System.out.println("Erro ao fechar conexão: " + e.getMessage());
-    }
-}
-    }//GEN-LAST:event_Bt_InserirActionPerformed
-
-    private void val_totalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_val_totalActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_val_totalActionPerformed
-
     private void Select(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_Select
         Connection conexao = null;
         PreparedStatement statement = null;
@@ -659,7 +624,7 @@ public class Estoque extends javax.swing.JFrame {
         
         try {
         conexao = DriverManager.getConnection(url, usuario, senha);
-        this.PopularJTable("SELECT * FROM estoque id");
+        this.PopularJTable("SELECT * FROM cadastro_produto id");
         } catch (SQLException ex) {
             
         }
@@ -667,17 +632,47 @@ public class Estoque extends javax.swing.JFrame {
 
     private void Tabela_Estoque(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Tabela_Estoque
         int linha = Tabela_Estoque.getSelectedRow();
-        txt_ID_Atualizar_CadastroDeProduto.setText(Tabela_Estoque.getValueAt(linha, 0).toString());
-        cod_produto.setText(Tabela_Estoque.getValueAt(linha, 1).toString());
-        nome_produto.setText(Tabela_Estoque.getValueAt(linha, 2).toString());
-        unidades_estoque.setText(Tabela_Estoque.getValueAt(linha, 3).toString());
-        val_inicial_estoque.setText(Tabela_Estoque.getValueAt(linha, 4).toString());
-        val_estoque_fret.setText(Tabela_Estoque.getValueAt(linha, 5).toString());
-        val_total.setText(Tabela_Estoque.getValueAt(linha, 6).toString());
-        total_vendas_estoque.setText(Tabela_Estoque.getValueAt(linha, 7).toString());
-        cod_barra_estoque.setText(Tabela_Estoque.getValueAt(linha, 8).toString());
-        tipo_estoque.setText(Tabela_Estoque.getValueAt(linha, 9).toString());
+        txt_ID_Atualizar_CadastroDeProduto.setText(Tabela_Estoque.getValueAt(linha,0).toString());
+        cod_produto.setText(Tabela_Estoque.getValueAt(linha,1).toString());
+        nome_produto.setText(Tabela_Estoque.getValueAt(linha,2).toString());
+        unidade_estoque.setText(Tabela_Estoque.getValueAt(linha,5).toString());
+        preco_estoque.setText(Tabela_Estoque.getValueAt(linha,7).toString());
+        valor_total_estoque.setText(Tabela_Estoque.getValueAt(linha,8).toString());
+        peso_estoque.setText(Tabela_Estoque.getValueAt(linha,9).toString());
+        descricao_estoque.setText(Tabela_Estoque.getValueAt(linha, 10).toString());
     }//GEN-LAST:event_Tabela_Estoque
+
+    private void peso_estoqueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_peso_estoqueActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_peso_estoqueActionPerformed
+
+    private void cod_produtoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cod_produtoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cod_produtoActionPerformed
+
+    private void tamanho_produtoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tamanho_produtoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tamanho_produtoActionPerformed
+
+    private void nome_produtoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nome_produtoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_nome_produtoActionPerformed
+
+    private void preco_estoqueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_preco_estoqueActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_preco_estoqueActionPerformed
+
+    private void valor_total_estoqueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_valor_total_estoqueActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_valor_total_estoqueActionPerformed
+
+    private void categoria_estoqueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_categoria_estoqueActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_categoria_estoqueActionPerformed
+
+    private void unidade_estoqueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_unidade_estoqueActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_unidade_estoqueActionPerformed
 
     /**
      * @param args the command line arguments
@@ -712,6 +707,14 @@ public class Estoque extends javax.swing.JFrame {
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -724,20 +727,23 @@ public class Estoque extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Bt_Atualizar;
     private javax.swing.JButton Bt_Deletar;
-    private javax.swing.JButton Bt_Inserir;
     private javax.swing.JButton Bt_Voltar_Funcionario;
     private javax.swing.JTable Tabela_Estoque;
-    private javax.swing.JTextField cod_barra_estoque;
+    private javax.swing.JComboBox<String> categoria_estoque;
     private javax.swing.JTextField cod_produto;
+    private javax.swing.JComboBox<String> condicao_estoque;
+    private javax.swing.JTextArea descricao_estoque;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
@@ -746,14 +752,14 @@ public class Estoque extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTextField nome_produto;
-    private javax.swing.JTextField tipo_estoque;
-    private javax.swing.JTextField total_vendas_estoque;
+    private javax.swing.JTextField peso_estoque;
+    private javax.swing.JTextField preco_estoque;
+    private javax.swing.JComboBox<String> tamanho_produto;
     private javax.swing.JTextField txt_ID_Atualizar_CadastroDeProduto;
     private javax.swing.JTextField txt_ID_Deletar_CadastroDeProduto;
-    private javax.swing.JTextField unidades_estoque;
-    private javax.swing.JTextField val_estoque_fret;
-    private javax.swing.JTextField val_inicial_estoque;
-    private javax.swing.JTextField val_total;
+    private javax.swing.JTextField unidade_estoque;
+    private javax.swing.JTextField valor_total_estoque;
     // End of variables declaration//GEN-END:variables
 }

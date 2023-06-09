@@ -4,6 +4,8 @@
  */
 package pkg04_01_exercise;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author aluno
@@ -167,7 +169,7 @@ public class Menu extends javax.swing.JFrame {
     private void btn_pedidosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_pedidosActionPerformed
         // TODO add your handling code here:
         Menu.this.dispose();
-        Pedido pedido = new Pedido();
+        Meu_Pedido pedido = new Meu_Pedido();
         pedido.setVisible(true);
     }//GEN-LAST:event_btn_pedidosActionPerformed
 
@@ -181,15 +183,24 @@ public class Menu extends javax.swing.JFrame {
     private void btn_faqActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_faqActionPerformed
         // TODO add your handling code here:
         Menu.this.dispose();
-        faq faq = new faq();
+        Faq faq = new Faq();
         faq.setVisible(true);
     }//GEN-LAST:event_btn_faqActionPerformed
 
     private void btn_sairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_sairActionPerformed
         // TODO add your handling code here:
+        String[] opcoes = {"Sim", "Não"};
+        int resposta = JOptionPane.showOptionDialog(rootPane, "Tem certeza que desja sair?", "Confirmação", JOptionPane.DEFAULT_OPTION, JOptionPane.QUESTION_MESSAGE, null, opcoes, opcoes[0]);
+        
+        if (resposta == JOptionPane.YES_OPTION) {
+            
         Menu.this.dispose();
-        Layson_tela_login login = new Layson_tela_login();
+        Login login = new Login();
         login.setVisible(true);
+        
+        } else {
+            
+        }
         
     }//GEN-LAST:event_btn_sairActionPerformed
 
