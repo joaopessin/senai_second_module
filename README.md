@@ -3,7 +3,7 @@
 # Cadastro Funcionario
 - Colocar campo de senha :heavy_check_mark:
 - Validar data nascimento; :heavy_check_mark:
-- Botão Export;
+- Botão Export; :heavy_check_mark:
 - Sumário errado (documentação)
 
 # Caso de Uso:
