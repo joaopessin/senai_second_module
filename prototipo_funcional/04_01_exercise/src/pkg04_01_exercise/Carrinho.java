@@ -4,6 +4,8 @@
  */
 package pkg04_01_exercise;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author jvpes
@@ -151,11 +153,21 @@ public class Carrinho extends javax.swing.JFrame {
         btn_excluir_1.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         btn_excluir_1.setForeground(new java.awt.Color(229, 237, 248));
         btn_excluir_1.setText("Excluir");
+        btn_excluir_1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_excluir_1ActionPerformed(evt);
+            }
+        });
 
         btn_favoritar_1.setBackground(new java.awt.Color(17, 69, 139));
         btn_favoritar_1.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         btn_favoritar_1.setForeground(new java.awt.Color(229, 237, 248));
         btn_favoritar_1.setText("Favoritar");
+        btn_favoritar_1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_favoritar_1ActionPerformed(evt);
+            }
+        });
 
         jPanel5.setBackground(new java.awt.Color(17, 69, 139));
 
@@ -288,11 +300,21 @@ public class Carrinho extends javax.swing.JFrame {
         btn_excluir_2.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         btn_excluir_2.setForeground(new java.awt.Color(229, 237, 248));
         btn_excluir_2.setText("Excluir");
+        btn_excluir_2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_excluir_2ActionPerformed(evt);
+            }
+        });
 
         btn_favoritar_2.setBackground(new java.awt.Color(17, 69, 139));
         btn_favoritar_2.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         btn_favoritar_2.setForeground(new java.awt.Color(229, 237, 248));
         btn_favoritar_2.setText("Favoritar");
+        btn_favoritar_2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_favoritar_2ActionPerformed(evt);
+            }
+        });
 
         select_qtd_2.setBackground(new java.awt.Color(17, 69, 139));
         select_qtd_2.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
@@ -473,9 +495,49 @@ public class Carrinho extends javax.swing.JFrame {
     private void btn_voltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_voltarActionPerformed
         // TODO add your handling code here:
         Carrinho.this.dispose();
-        Listagem_Produto acessoListagemProduto = new Listagem_Produto();
+        Lista_de_Produtos acessoListagemProduto = new Lista_de_Produtos();
         acessoListagemProduto.setVisible(true);
     }//GEN-LAST:event_btn_voltarActionPerformed
+
+    private void btn_excluir_1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_excluir_1ActionPerformed
+        // TODO add your handling code here:
+         String[] opcoes = {"Sim", "Não"};
+        int resposta = JOptionPane.showOptionDialog(rootPane, "Tem certeza que deseja excluir esse produto do carrinho?", "Confirmação", JOptionPane.DEFAULT_OPTION, JOptionPane.QUESTION_MESSAGE, null, opcoes, opcoes[0]);
+        
+        if (resposta == JOptionPane.YES_OPTION) {
+            
+        JOptionPane.showMessageDialog(rootPane,"O Produto será removido em breve.");
+        
+        } else {
+            
+        }
+    }//GEN-LAST:event_btn_excluir_1ActionPerformed
+
+    private void btn_excluir_2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_excluir_2ActionPerformed
+        // TODO add your handling code here:
+         String[] opcoes = {"Sim", "Não"};
+        int resposta = JOptionPane.showOptionDialog(rootPane, "Tem certeza que deseja excluir esse produto do carrinho?", "Confirmação", JOptionPane.DEFAULT_OPTION, JOptionPane.QUESTION_MESSAGE, null, opcoes, opcoes[0]);
+        
+        if (resposta == JOptionPane.YES_OPTION) {
+            
+        JOptionPane.showMessageDialog(rootPane,"O Produto será removido em breve.");
+        
+        } else {
+            
+        }
+    }//GEN-LAST:event_btn_excluir_2ActionPerformed
+
+    private void btn_favoritar_1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_favoritar_1ActionPerformed
+        // TODO add your handling code here:
+        JOptionPane.showMessageDialog(rootPane,"O Produto foi adicionado aos favoritos!.");
+        
+    }//GEN-LAST:event_btn_favoritar_1ActionPerformed
+
+    private void btn_favoritar_2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_favoritar_2ActionPerformed
+        // TODO add your handling code here:
+         JOptionPane.showMessageDialog(rootPane,"O Produto foi adicionado aos favoritos!.");
+         
+    }//GEN-LAST:event_btn_favoritar_2ActionPerformed
 
     /**
      * @param args the command line arguments
