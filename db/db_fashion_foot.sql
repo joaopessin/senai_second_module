@@ -62,7 +62,6 @@ valor_total DECIMAL(6, 2),
 total_vendas INT(10),
 cod_barra BIGINT(14),
 tipo_produto VARCHAR(60)
--- id_produto_estoque
 );
 
 CREATE TABLE editar_perfil(
