@@ -38,12 +38,12 @@ Login:
 - Alterar a senha de fato :heavy_check_mark:
 
 # Geral:
-- Mudar as datas para o tipo DATE e fazer lógica no código 
-- Validação de CPF / RG
-- Mudar nome dos arquivos (coerente)
+- Mudar as datas para o tipo DATE e fazer lógica no código :heavy_check_mark:
+- Validação de CPF / RG :heavy_check_mark:
+- Mudar nome dos arquivos (coerente) :heavy_check_mark:
 - Implementar botões de inserir
 - Concertar CRUD
-- Corrigir nomes (mesmo nome para as telas)
+- Corrigir nomes (mesmo nome para as telas) :heavy_check_mark:
 - Corrigir mensagens de erro ou atualização para o cliente (respostas)
 - Remover campos NOT NULL de campos desnecessários
 
