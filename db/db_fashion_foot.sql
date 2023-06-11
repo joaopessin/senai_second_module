@@ -22,15 +22,15 @@ CREATE TABLE cliente(
 id INT AUTO_INCREMENT PRIMARY KEY,
 senha CHAR(14) NOT NULL,
 nome_completo VARCHAR (255) NOT NULL,
-data_nasc DATE NOT NULL,
-telefone VARCHAR(55) NOT NULL,
-cpf VARCHAR (14) NOT NULL,
+data_nasc INT NOT NULL,
+telefone BIGINT(14) NOT NULL,
+cpf CHAR (14) NOT NULL,
 email VARCHAR(255) NOT NULL,
 estado VARCHAR(255) NOT NULL,
 cidade VARCHAR(255) NOT NULL,
 rua VARCHAR(255) NOT NULL,
 number_casa INT(2) NOT NULL,
-cep INT(9) NOT NULL
+cep INT(9)
 );
 
 create table funcionario(
@@ -43,11 +43,11 @@ cpf VARCHAR(14),
 rg VARCHAR(20),
 estado_civil VARCHAR(55),
 email VARCHAR(155), 
-cep VARCHAR(9),
+cep INT(9),
 estado VARCHAR(55),
 bairro VARCHAR(44),
 numero VARCHAR(55),
-telefone VARCHAR(55),
+telefone BIGINT(14),
 senha VARCHAR(100) NOT NULL
 );
 
