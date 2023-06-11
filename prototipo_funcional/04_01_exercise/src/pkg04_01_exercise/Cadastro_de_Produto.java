@@ -128,6 +128,11 @@ public class Cadastro_de_Produto extends javax.swing.JFrame {
         jPanel3.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
         jButton1.setText("Adicionar foto");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -493,6 +498,12 @@ public class Cadastro_de_Produto extends javax.swing.JFrame {
     private void categoria_produtoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_categoria_produtoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_categoria_produtoActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        JOptionPane.showMessageDialog(rootPane,"Essa funcionalidade será implementada em breve!");
+        
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
