@@ -4,7 +4,7 @@
 - Colocar campo de senha :heavy_check_mark:
 - Validar data nascimento; :heavy_check_mark:
 - Botão Export; :heavy_check_mark:
-- Sumário errado (documentação)
+- Sumário errado (documentação) :heavy_check_mark:
 
 # Caso de Uso:
 - Revisar completamente (criar conta) :arrows_counterclockwise:
