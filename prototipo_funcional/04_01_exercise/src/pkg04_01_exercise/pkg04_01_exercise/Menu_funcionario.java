@@ -173,10 +173,18 @@ public class Menu_funcionario extends javax.swing.JFrame {
 
     private void Funcionario_btn_sairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Funcionario_btn_sairActionPerformed
         // TODO add your handling code here:
+        String[] opcoes = {"Sim", "Não"};
+        int resposta = JOptionPane.showOptionDialog(rootPane, "Tem certeza que desja sair?", "Confirmação", JOptionPane.DEFAULT_OPTION, JOptionPane.QUESTION_MESSAGE, null, opcoes, opcoes[0]);
+        
+        if (resposta == JOptionPane.YES_OPTION) {
+            
         Menu_funcionario.this.dispose();
         Login login = new Login();
         login.setVisible(true);
-
+        
+        } else {
+            
+        }
     }//GEN-LAST:event_Funcionario_btn_sairActionPerformed
 
     /**
