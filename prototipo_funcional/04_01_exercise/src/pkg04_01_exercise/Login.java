@@ -328,7 +328,7 @@ public class Login extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(rootPane, "Login realizado com sucesso!");
                 
             Login.this.dispose();
-            Listagem_Produto acessarListagemProduto = new Listagem_Produto();
+            Lista_de_Produtos acessarListagemProduto = new Lista_de_Produtos();
             acessarListagemProduto.setVisible(true);
             
             } else if(valid2 == true){
