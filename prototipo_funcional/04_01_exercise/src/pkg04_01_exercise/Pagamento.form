@@ -146,15 +146,13 @@
                                       <Group type="102" alignment="0" attributes="0">
                                           <EmptySpace max="-2" attributes="0"/>
                                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                              <Component id="btn_deletar" max="32767" attributes="0"/>
                                               <Component id="txt_id" alignment="0" max="32767" attributes="0"/>
                                               <Component id="jPanel7" alignment="0" max="32767" attributes="0"/>
                                           </Group>
                                           <EmptySpace type="separate" max="-2" attributes="0"/>
                                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                               <Component id="jPanel8" max="32767" attributes="0"/>
-                                              <Component id="btn_atualizar" pref="101" max="32767" attributes="0"/>
-                                              <Component id="btn_inserir" alignment="0" max="32767" attributes="0"/>
+                                              <Component id="btn_inserir" alignment="0" pref="101" max="32767" attributes="0"/>
                                           </Group>
                                       </Group>
                                   </Group>
@@ -190,11 +188,6 @@
                                   <Group type="103" groupAlignment="3" attributes="0">
                                       <Component id="txt_id" alignment="3" min="-2" max="-2" attributes="0"/>
                                       <Component id="btn_inserir" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="3" attributes="0">
-                                      <Component id="btn_deletar" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="btn_atualizar" alignment="3" min="-2" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                               <Component id="jPanel4" min="-2" pref="214" max="-2" attributes="0"/>
@@ -912,40 +905,6 @@
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txt_idActionPerformed"/>
-          </Events>
-        </Component>
-        <Component class="javax.swing.JButton" name="btn_deletar">
-          <Properties>
-            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="f8" green="ed" red="e5" type="rgb"/>
-            </Property>
-            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Arial" size="14" style="1"/>
-            </Property>
-            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="8b" green="45" red="11" type="rgb"/>
-            </Property>
-            <Property name="text" type="java.lang.String" value="Deletar"/>
-          </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_deletarActionPerformed"/>
-          </Events>
-        </Component>
-        <Component class="javax.swing.JButton" name="btn_atualizar">
-          <Properties>
-            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="f8" green="ed" red="e5" type="rgb"/>
-            </Property>
-            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Arial" size="14" style="1"/>
-            </Property>
-            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="8b" green="45" red="11" type="rgb"/>
-            </Property>
-            <Property name="text" type="java.lang.String" value="Atualizar"/>
-          </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_atualizarActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JButton" name="btn_inserir">

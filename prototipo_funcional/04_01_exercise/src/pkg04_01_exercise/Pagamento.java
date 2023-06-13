@@ -83,8 +83,6 @@ public class Pagamento extends javax.swing.JFrame {
         btn_cancelar = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         txt_id = new javax.swing.JTextField();
-        btn_deletar = new javax.swing.JButton();
-        btn_atualizar = new javax.swing.JButton();
         btn_inserir = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         tb_dados = new javax.swing.JTable();
@@ -494,26 +492,6 @@ public class Pagamento extends javax.swing.JFrame {
             }
         });
 
-        btn_deletar.setBackground(new java.awt.Color(229, 237, 248));
-        btn_deletar.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        btn_deletar.setForeground(new java.awt.Color(17, 69, 139));
-        btn_deletar.setText("Deletar");
-        btn_deletar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_deletarActionPerformed(evt);
-            }
-        });
-
-        btn_atualizar.setBackground(new java.awt.Color(229, 237, 248));
-        btn_atualizar.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        btn_atualizar.setForeground(new java.awt.Color(17, 69, 139));
-        btn_atualizar.setText("Atualizar");
-        btn_atualizar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_atualizarActionPerformed(evt);
-            }
-        });
-
         btn_inserir.setBackground(new java.awt.Color(17, 69, 139));
         btn_inserir.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         btn_inserir.setForeground(new java.awt.Color(229, 237, 248));
@@ -575,14 +553,12 @@ public class Pagamento extends javax.swing.JFrame {
                                     .addGroup(jPanel5Layout.createSequentialGroup()
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                            .addComponent(btn_deletar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                             .addComponent(txt_id)
                                             .addComponent(jPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                         .addGap(18, 18, 18)
                                         .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                             .addComponent(jPanel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                            .addComponent(btn_atualizar, javax.swing.GroupLayout.DEFAULT_SIZE, 101, Short.MAX_VALUE)
-                                            .addComponent(btn_inserir, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))))
+                                            .addComponent(btn_inserir, javax.swing.GroupLayout.DEFAULT_SIZE, 101, Short.MAX_VALUE))))))
                         .addGap(0, 22, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -606,11 +582,7 @@ public class Pagamento extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(txt_id, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(btn_inserir))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(btn_deletar)
-                                    .addComponent(btn_atualizar)))
+                                    .addComponent(btn_inserir)))
                             .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 401, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -723,108 +695,6 @@ public class Pagamento extends javax.swing.JFrame {
     private void txt_idActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_idActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txt_idActionPerformed
-
-    private void btn_deletarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_deletarActionPerformed
-        // TODO add your handling code here:
-        Connection conexao = null;
-        PreparedStatement statement = null;
-
-        String url = "jdbc:mysql://localhost:3307/fashion_foot";
-        String usuario = "ff_lucas";
-        String senha = "123456";
-
-        try {
-            conexao = DriverManager.getConnection(url, usuario, senha);
-
-            String sql = "DELETE FROM pagamento WHERE id_usuario = ?";
-
-            statement = conexao.prepareStatement(sql);
-            //statement.setString(1, jTextPane1_ID.getText());
-
-            statement.setString(1, txt_id.getText());
-            //statement.execute();
-            // statement.close();
-
-            int linhasAfetadas = statement.executeUpdate();
-
-            if (linhasAfetadas > 0) {
-
-                JOptionPane.showMessageDialog(rootPane, "Dados apagados com sucesso!");
-
-            } else {
-                JOptionPane.showMessageDialog(rootPane, "Nenhum dado apagado!");
-            }
-        } catch (SQLException e) {
-            JOptionPane.showMessageDialog(rootPane, "Erro de delete de dado!");
-            System.out.println(e.getMessage());
-        } finally {
-            try {
-                if (statement != null) {
-                    statement.close();
-                }
-                if (conexao != null) {
-                    conexao.close();
-                }
-            } catch (SQLException e) {
-                JOptionPane.showMessageDialog(rootPane, "Erro de fechamento!");
-            }}
-
-    }//GEN-LAST:event_btn_deletarActionPerformed
-
-    private void btn_atualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_atualizarActionPerformed
-        // TODO add your handling code here:
-        Connection conexao = null;
-        PreparedStatement statement = null;
-
-        String url = "jdbc:mysql://localhost:3307/fashion_foot";
-        String usuario = "ff_lucas";
-        String senha = "123456";
-
-        try {
-            conexao = DriverManager.getConnection(url, usuario, senha);
-
-            String sql = "UPDATE pagamento SET nome = ?, data_nascimento = ?, numero_cpf_cnpj = ?, nome_cartao = ?, numero_cartao = ?, ano_validade = ?, cvv = ?, parcelas = ? WHERE id_usuario = ?";
-
-            statement = conexao.prepareStatement(sql);
-            //statement.setString(1, jTextPane1_ID.getText());
-
-            statement.setString(1, txt_nome.getText());
-            statement.setString(2, txt_data_nasc.getText());
-            statement.setString(3, txt_num_cpf_cnpj.getText());
-            statement.setString(4, txt_nome_cartao.getText());
-            statement.setString(5, txt_num_cartao.getText());
-            //statement.setString(6, select_mes_validade.getSelectedItem().toString();
-            statement.setString(6, select_ano_validade.getSelectedItem().toString());
-            statement.setString(7, txt_cvv.getText());
-            statement.setString(8, select_parcelas.getSelectedItem().toString());
-            statement.setString(9, txt_id.getText());
-            //statement.execute();
-            // statement.close();
-
-            int linhasAfetadas = statement.executeUpdate();
-
-            if (linhasAfetadas > 0) {
-
-                JOptionPane.showMessageDialog(rootPane, "Dados inseridos com sucesso!");
-
-            } else {
-                JOptionPane.showMessageDialog(rootPane, "Nenhum dado inserido!");
-            }
-        } catch (SQLException e) {
-            JOptionPane.showMessageDialog(rootPane, "Erro de inserção de dado!");
-            System.out.println(e.getMessage());
-        } finally {
-            try {
-                if (statement != null) {
-                    statement.close();
-                }
-                if (conexao != null) {
-                    conexao.close();
-                }
-            } catch (SQLException e) {
-                JOptionPane.showMessageDialog(rootPane, "Erro de fechamento!");
-            }}
-    }//GEN-LAST:event_btn_atualizarActionPerformed
 
     private void btn_inserirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_inserirActionPerformed
         // TODO add your handling code here:
@@ -958,10 +828,8 @@ public class Pagamento extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btn_atualizar;
     private javax.swing.JButton btn_cancelar;
     private javax.swing.JButton btn_comprar;
-    private javax.swing.JButton btn_deletar;
     private javax.swing.JButton btn_foto;
     private javax.swing.JButton btn_inserir;
     private javax.swing.JToggleButton btn_voltar;
