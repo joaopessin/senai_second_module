@@ -13,7 +13,9 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import javax.swing.JOptionPane;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -88,6 +90,11 @@ public class Pagamento extends javax.swing.JFrame {
         tb_dados = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowOpened(java.awt.event.WindowEvent evt) {
+                Select(evt);
+            }
+        });
 
         jPanel1.setBackground(new java.awt.Color(17, 69, 139));
 
@@ -134,6 +141,11 @@ public class Pagamento extends javax.swing.JFrame {
         btn_foto.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         btn_foto.setForeground(new java.awt.Color(229, 237, 248));
         btn_foto.setText("TIRE UMA FOTO");
+        btn_foto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_fotoActionPerformed(evt);
+            }
+        });
 
         jLabel14.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jLabel14.setForeground(new java.awt.Color(17, 69, 139));
@@ -466,10 +478,16 @@ public class Pagamento extends javax.swing.JFrame {
         btn_cancelar.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         btn_cancelar.setForeground(new java.awt.Color(17, 69, 139));
         btn_cancelar.setText("Cancelar");
+        btn_cancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_cancelarActionPerformed(evt);
+            }
+        });
 
         jLabel2.setText("ID");
 
         txt_id.setFont(new java.awt.Font("Arial", 2, 12)); // NOI18N
+        txt_id.setEnabled(false);
         txt_id.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txt_idActionPerformed(evt);
@@ -520,6 +538,11 @@ public class Pagamento extends javax.swing.JFrame {
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
                 return canEdit [columnIndex];
+            }
+        });
+        tb_dados.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Clique(evt);
             }
         });
         jScrollPane1.setViewportView(tb_dados);
@@ -620,7 +643,50 @@ public class Pagamento extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+     public void PopularJTable(String sql) {
+    try
+  {
+   Connection con=(Connection)DriverManager.getConnection("jdbc:mysql://localhost:3307/fashion_foot", "ff_lucas", "123456");
+   PreparedStatement banco = (PreparedStatement)con.prepareStatement(sql);
+   banco.execute(); 
+ 
+   ResultSet resultado = banco.executeQuery(sql);
+ 
+   DefaultTableModel model =(DefaultTableModel) tb_dados.getModel();
+   model.setNumRows(0);
+ 
+   while(resultado.next())
+   {
+       model.addRow(new Object[] 
+       { 
+          //retorna os dados da tabela do BD, cada campo e um coluna.
+          //codigo,nome,condicao,tamanho,unidades,categoria,preco,valor_venda,peso,descricao
+          resultado.getString("id_usuario"),
+          resultado.getString("nome"),
+          resultado.getString("data_nascimento"),
+          resultado.getString("numero_cpf_cnpj"),
+          resultado.getString("nome_cartao"),
+          resultado.getString("numero_cartao"),
+          resultado.getString("mes_validade"),
+          resultado.getString("ano_validade"),
+          resultado.getString("cvv"),
+          resultado.getString("parcelas")
+       }); 
+  } 
+   banco.close();
+   con.close();
+  }
+ catch (SQLException ex)
+ {
+    System.out.println("o erro foi " +ex);
+  }
+ }
+    
+    
     private void btn_comprarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_comprarActionPerformed
+        
+        JOptionPane.showMessageDialog(rootPane, "Compra efetuada!");
+        
         FileWriter arquivo = null;
         try {
             // TODO add your handling code here:
@@ -650,7 +716,7 @@ public class Pagamento extends javax.swing.JFrame {
     private void btn_voltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_voltarActionPerformed
         // TODO add your handling code here:
         Pagamento.this.dispose();
-        Layson_Acesso_Ao_Produto acessoProduto = new Layson_Acesso_Ao_Produto();
+        Acesso_ao_Produto acessoProduto = new Acesso_ao_Produto();
         acessoProduto.setVisible(true);
     }//GEN-LAST:event_btn_voltarActionPerformed
 
@@ -817,6 +883,44 @@ public class Pagamento extends javax.swing.JFrame {
     private void txt_data_nascActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_data_nascActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txt_data_nascActionPerformed
+
+    private void Select(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_Select
+        // TODO add your handling code here:
+         Connection conexao = null;
+        PreparedStatement statement = null;
+
+        String url = "jdbc:mysql://localhost:3307/fashion_foot";
+        String usuario = "ff_lucas";
+        String senha = "123456";
+        
+        try {
+        conexao = DriverManager.getConnection(url, usuario, senha);
+        this.PopularJTable("SELECT * FROM pagamento id");
+        } catch (SQLException ex) {
+            
+        }
+    }//GEN-LAST:event_Select
+
+    private void Clique(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Clique
+        // TODO add your handling code here:
+         int linha = tb_dados.getSelectedRow();
+        txt_nome.setText(tb_dados.getValueAt(linha,1).toString());
+        txt_num_cpf_cnpj.setText(tb_dados.getValueAt(linha,5).toString());
+        txt_nome_cartao.setText(tb_dados.getValueAt(linha,4).toString());
+        txt_num_cartao.setText(tb_dados.getValueAt(linha,3).toString());
+        txt_cvv.setText(tb_dados.getValueAt(linha,4).toString());
+      
+    }//GEN-LAST:event_Clique
+
+    private void btn_fotoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_fotoActionPerformed
+        // TODO add your handling code here:
+        JOptionPane.showMessageDialog(rootPane, "Essa funcionalidade será implementada em breve!");
+    }//GEN-LAST:event_btn_fotoActionPerformed
+
+    private void btn_cancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_cancelarActionPerformed
+        // TODO add your handling code here:
+        JOptionPane.showMessageDialog(rootPane, "Compra cancelada!");
+    }//GEN-LAST:event_btn_cancelarActionPerformed
 
     /**
      * @param args the command line arguments
