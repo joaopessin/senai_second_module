@@ -51,3 +51,4 @@ Login:
 - Organizar apresentação em ordem de procedência (não funcional + funcional);
 - Marcar quais campos no sistema são obrigatórios (asterísco ao lado do nome do campo);
 - Finalizar problemas nos protótipos funcionais e banco.
+- criar tela introdutoria antes de cada tela na apresentação.
