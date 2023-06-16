@@ -13,26 +13,26 @@ Login:
 - Mudar acesso de login para cpf :heavy_check_mark:
 
 # Dicionario:
-- Adicionar cadastro de produto
+- Adicionar cadastro de produto :heavy_check_mark:
 
 # Acesso ao produto:
-- Listar produtos cadastrados
+- Listar produtos cadastrados :x:
 - Comentario :heavy_check_mark:
 
 # Criar conta:
-- Unificar o banco/tela do cliente / funcionario e fazer um tipo para cada dentro da tabela
+- Unificar o banco / tela do cliente / funcionario e fazer um tipo para cada dentro da tabela :x:
 
 # Agendamento:
-- Organizar lista de agendamento (tabela de histórico)
-- Criar nova tela para novo agendamento
+- Organizar lista de agendamento (tabela de histórico) :heavy_check_mark:
+- Criar nova tela para novo agendamento :heavy_check_mark:
 
 # Pagamento:
-- organizar tamanho;
-- usar como referencia a data
-- Efetuar pagamento > rastreio
+- organizar tamanho :heavy_check_mark:
+- usar como referencia a data :heavy_check_mark:
+- Efetuar pagamento > rastreio :heavy_check_mark:
 
 # Meu pedido:
-- Organizar lista
+- Organizar lista :heavy_check_mark:
 
 # Alterar senha:
 - Alterar a senha de fato :heavy_check_mark:
@@ -41,14 +41,14 @@ Login:
 - Mudar as datas para o tipo DATE e fazer lógica no código :heavy_check_mark:
 - Validação de CPF / RG :heavy_check_mark:
 - Mudar nome dos arquivos (coerente) :heavy_check_mark:
-- Implementar botões de inserir
-- Concertar CRUD
+- Implementar botões de inserir :heavy_check_mark:
+- Concertar CRUD :heavy_check_mark:
 - Corrigir nomes (mesmo nome para as telas) :heavy_check_mark:
-- Corrigir mensagens de erro ou atualização para o cliente (respostas)
-- Remover campos NOT NULL de campos desnecessários
+- Corrigir mensagens de erro ou atualização para o cliente (respostas) :heavy_check_mark:
+- Remover campos NOT NULL de campos desnecessários :heavy_check_mark:
 
 # Entrega final:
-- Organizar apresentação em ordem de procedência (não funcional + funcional);
-- Marcar quais campos no sistema são obrigatórios (asterísco ao lado do nome do campo);
-- Finalizar problemas nos protótipos funcionais e banco.
-- criar tela introdutoria antes de cada tela na apresentação.
+- Organizar apresentação em ordem de procedência (não funcional + funcional) :heavy_check_mark:
+- Marcar quais campos no sistema são obrigatórios (asterísco ao lado do nome do campo) :x:
+- Finalizar problemas nos protótipos funcionais e banco :heavy_check_mark:
+- criar tela introdutoria antes de cada tela na apresentação :heavy_check_mark:
