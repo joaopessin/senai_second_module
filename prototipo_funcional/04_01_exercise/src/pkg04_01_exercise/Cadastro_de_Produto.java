@@ -17,21 +17,19 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
-import pkg04_01_exercise.Menu_funcionario;
-import pkg04_01_exercise.Menu_funcionario;
 
 /**
  *
  * @author aluno
  */
-public class Cadastro_de_Produto extends javax.swing.JFrame {
+public class Cadastro_De_Produto extends javax.swing.JFrame {
 
     private PreparedStatement statement;
 
     /**
      * Creates new form Layson_Tela_CadastroProduto
      */
-    public Cadastro_de_Produto() {
+    public Cadastro_De_Produto() {
         initComponents();
     }
     
@@ -418,7 +416,7 @@ public class Cadastro_de_Produto extends javax.swing.JFrame {
 
     private void Bot_voltar_cadastroProdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Bot_voltar_cadastroProdActionPerformed
         // TODO add your handling code here:
-        Cadastro_de_Produto.this.dispose();
+        Cadastro_De_Produto.this.dispose();
         Menu_funcionario menuFuncionario = new Menu_funcionario();
         menuFuncionario.setVisible(true);
     }//GEN-LAST:event_Bot_voltar_cadastroProdActionPerformed
@@ -459,7 +457,7 @@ public class Cadastro_de_Produto extends javax.swing.JFrame {
             }
             
         } catch (SQLException ex) {
-            Logger.getLogger(Cadastro_de_Produto.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Cadastro_De_Produto.class.getName()).log(Level.SEVERE, null, ex);
         } finally {
              try {
                 if (statement != null) {
@@ -522,14 +520,30 @@ public class Cadastro_de_Produto extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Cadastro_de_Produto.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Cadastro_De_Produto.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Cadastro_de_Produto.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Cadastro_De_Produto.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Cadastro_de_Produto.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Cadastro_De_Produto.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Cadastro_de_Produto.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Cadastro_De_Produto.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
@@ -550,7 +564,7 @@ public class Cadastro_de_Produto extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Cadastro_de_Produto().setVisible(true);
+                new Cadastro_De_Produto().setVisible(true);
             }
         });
     }

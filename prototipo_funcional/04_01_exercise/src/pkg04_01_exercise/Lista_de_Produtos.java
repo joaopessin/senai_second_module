@@ -364,7 +364,7 @@ public class Lista_de_Produtos extends javax.swing.JFrame {
     private void menu_idActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menu_idActionPerformed
         // TODO add your handling code here:
         Lista_de_Produtos.this.dispose();
-        Menu menu = new Menu();
+        Menu_Cliente menu = new Menu_Cliente();
         menu.setVisible(true);
     }//GEN-LAST:event_menu_idActionPerformed
 

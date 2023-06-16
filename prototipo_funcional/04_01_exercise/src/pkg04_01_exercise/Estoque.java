@@ -1,6 +1,5 @@
 package pkg04_01_exercise;
 
-import pkg04_01_exercise.Cadastro_de_Produto;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -184,6 +183,12 @@ public class Estoque extends javax.swing.JFrame {
             }
         });
 
+        txt_ID_Atualizar_CadastroDeProduto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txt_ID_Atualizar_CadastroDeProdutoActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
         jPanel7.setLayout(jPanel7Layout);
         jPanel7Layout.setHorizontalGroup(
@@ -316,6 +321,7 @@ public class Estoque extends javax.swing.JFrame {
 
         condicao_estoque.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         condicao_estoque.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Não especificado", "Novo", "Usado", "Danificado" }));
+        condicao_estoque.setSelectedItem(condicao_estoque);
 
         categoria_estoque.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         categoria_estoque.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Não especificado", "Esportivo", "Casual", "Social" }));
@@ -552,7 +558,7 @@ public class Estoque extends javax.swing.JFrame {
             }
 
         } catch (SQLException ex) {
-            Logger.getLogger(Cadastro_de_Produto.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Cadastro_De_Produto.class.getName()).log(Level.SEVERE, null, ex);
         } finally {
             try {
                 if (statement != null) {
@@ -593,7 +599,7 @@ public class Estoque extends javax.swing.JFrame {
 
             if(linhasAfetadas > 0){
                 JOptionPane.showMessageDialog(rootPane,"Dados excluidos com sucesso!");
-                this.PopularJTable("SELECT * FROM cadastro_produto ORDER BY id");
+                this.PopularJTable("SELECT * FROM cadastro_produtos");
             } else {
                 JOptionPane.showMessageDialog(rootPane,"Nenhum dado excluido.");
             }
@@ -674,6 +680,10 @@ public class Estoque extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_unidade_estoqueActionPerformed
 
+    private void txt_ID_Atualizar_CadastroDeProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_ID_Atualizar_CadastroDeProdutoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt_ID_Atualizar_CadastroDeProdutoActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -699,14 +709,6 @@ public class Estoque extends javax.swing.JFrame {
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(Estoque.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>

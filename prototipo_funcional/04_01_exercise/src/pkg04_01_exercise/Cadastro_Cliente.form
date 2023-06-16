@@ -165,7 +165,7 @@
                           </Group>
                       </Group>
                   </Group>
-                  <EmptySpace pref="240" max="32767" attributes="0"/>
+                  <EmptySpace pref="242" max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
                       <Group type="102" attributes="0">
                           <Component id="adicionarFoto" min="-2" pref="90" max="-2" attributes="0"/>
@@ -177,9 +177,11 @@
                   <EmptySpace min="-2" pref="85" max="-2" attributes="0"/>
               </Group>
               <Group type="102" alignment="0" attributes="0">
-                  <EmptySpace min="-2" pref="304" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="299" max="-2" attributes="0"/>
+                  <Component id="excluir" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="65" max="-2" attributes="0"/>
                   <Component id="bt_entrar" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="127" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="67" max="-2" attributes="0"/>
                   <Component id="Salvar" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="32767" attributes="0"/>
               </Group>
@@ -261,8 +263,11 @@
                           </Group>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="bt_entrar" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="Salvar" min="-2" max="-2" attributes="0"/>
+                              <Component id="excluir" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="Salvar" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="bt_entrar" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
                           </Group>
                       </Group>
                   </Group>
@@ -358,6 +363,9 @@
           </Events>
         </Component>
         <Component class="javax.swing.JTextField" name="date_user">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="2023-01-15"/>
+          </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="date_userActionPerformed"/>
           </Events>
@@ -368,6 +376,9 @@
           </Events>
         </Component>
         <Component class="javax.swing.JTextField" name="cpf_user">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="000.000.000-00"/>
+          </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cpf_userActionPerformed"/>
           </Events>
@@ -378,6 +389,9 @@
           </Events>
         </Component>
         <Component class="javax.swing.JTextField" name="cep_user">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="00000-000"/>
+          </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cep_userActionPerformed"/>
           </Events>
@@ -461,6 +475,9 @@
           </Events>
         </Component>
         <Component class="javax.swing.JTextField" name="id_user">
+          <Properties>
+            <Property name="enabled" type="boolean" value="false"/>
+          </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="id_userActionPerformed"/>
           </Events>
@@ -482,6 +499,17 @@
           </Properties>
         </Component>
         <Component class="javax.swing.JPasswordField" name="senha_user">
+        </Component>
+        <Component class="javax.swing.JButton" name="excluir">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Arial" size="14" style="0"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="Excluir"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="excluirActionPerformed"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>

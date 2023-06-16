@@ -362,7 +362,7 @@ public class Login extends javax.swing.JFrame {
     private void Bt_criar_contaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Bt_criar_contaActionPerformed
         // TODO add your handling code here:
          Login.this.dispose();
-         Opcoes_de_Conta opConta = new Opcoes_de_Conta();
+         Opcoes_De_Conta opConta = new Opcoes_De_Conta();
          opConta.setVisible(true);
     }//GEN-LAST:event_Bt_criar_contaActionPerformed
 

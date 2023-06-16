@@ -4,6 +4,9 @@
  */
 package pkg04_01_exercise;
 
+import pkg04_01_exercise.Agendamento;
+import pkg04_01_exercise.Lista_de_Produtos;
+import pkg04_01_exercise.Pagamento;
 import javax.swing.JOptionPane;
 
 /**
@@ -466,7 +469,7 @@ public class Carrinho extends javax.swing.JFrame {
     private void btn_agendar_testeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_agendar_testeActionPerformed
         // TODO add your handling code here:
         Carrinho.this.dispose();
-        Agedamento agendamento = new Agedamento();
+        Agendamento agendamento = new Agendamento();
         agendamento.setVisible(true);
         
     }//GEN-LAST:event_btn_agendar_testeActionPerformed

@@ -1,9 +1,15 @@
 package pkg04_01_exercise;
 
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 public class Cadastro_Cliente extends javax.swing.JFrame {
 
@@ -47,6 +53,7 @@ public class Cadastro_Cliente extends javax.swing.JFrame {
         jLabel14 = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
         senha_user = new javax.swing.JPasswordField();
+        excluir = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
@@ -131,6 +138,7 @@ public class Cadastro_Cliente extends javax.swing.JFrame {
             }
         });
 
+        date_user.setText("2023-01-15");
         date_user.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 date_userActionPerformed(evt);
@@ -143,6 +151,7 @@ public class Cadastro_Cliente extends javax.swing.JFrame {
             }
         });
 
+        cpf_user.setText("000.000.000-00");
         cpf_user.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cpf_userActionPerformed(evt);
@@ -155,6 +164,7 @@ public class Cadastro_Cliente extends javax.swing.JFrame {
             }
         });
 
+        cep_user.setText("00000-000");
         cep_user.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cep_userActionPerformed(evt);
@@ -224,6 +234,7 @@ public class Cadastro_Cliente extends javax.swing.JFrame {
             }
         });
 
+        id_user.setEnabled(false);
         id_user.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 id_userActionPerformed(evt);
@@ -235,6 +246,14 @@ public class Cadastro_Cliente extends javax.swing.JFrame {
 
         jLabel16.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel16.setText("Senha");
+
+        excluir.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        excluir.setText("Excluir");
+        excluir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                excluirActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -276,7 +295,7 @@ public class Cadastro_Cliente extends javax.swing.JFrame {
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel16)
                             .addComponent(senha_user))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 240, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 242, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(adicionarFoto, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -285,9 +304,11 @@ public class Cadastro_Cliente extends javax.swing.JFrame {
                     .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(85, 85, 85))
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(304, 304, 304)
+                .addGap(299, 299, 299)
+                .addComponent(excluir)
+                .addGap(65, 65, 65)
                 .addComponent(bt_entrar)
-                .addGap(127, 127, 127)
+                .addGap(67, 67, 67)
                 .addComponent(Salvar)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -353,8 +374,10 @@ public class Cadastro_Cliente extends javax.swing.JFrame {
                             .addComponent(email_user, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(bt_entrar)
-                            .addComponent(Salvar))))
+                            .addComponent(excluir)
+                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(Salvar)
+                                .addComponent(bt_entrar)))))
                 .addContainerGap(34, Short.MAX_VALUE))
         );
 
@@ -421,6 +444,7 @@ public class Cadastro_Cliente extends javax.swing.JFrame {
 
     private void adicionarFotoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_adicionarFotoActionPerformed
         // TODO add your handling code here:
+         JOptionPane.showMessageDialog(rootPane,"Essa funcionalidade será implementada em breve!");
     }//GEN-LAST:event_adicionarFotoActionPerformed
 
     private void SalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SalvarActionPerformed
@@ -440,7 +464,7 @@ public class Cadastro_Cliente extends javax.swing.JFrame {
             
             statement.setString(1, new String (senha_user.getPassword()));
             statement.setString(2, name_user.getText());
-            statement.setInt(3, Integer.parseInt(date_user.getText()));
+            statement.setString(3, date_user.getText());
             statement.setString(4, telefone_user.getText());
             statement.setString(5, cpf_user.getText());
             statement.setString(6, email_user.getText());
@@ -448,13 +472,38 @@ public class Cadastro_Cliente extends javax.swing.JFrame {
             statement.setString(8, cidade_user.getText());
             statement.setString(9, rua_user.getText());
             statement.setInt(10, Integer.parseInt(num_user.getText()));
-            statement.setInt(11, Integer.parseInt(cep_user.getText()));
+            statement.setString(11, cep_user.getText());
             
             int linhasAfetadas = statement.executeUpdate();
            
             if (linhasAfetadas > 0) {
-                System.out.println("Dados inseridos com sucesso!");
-                 bt_entrar.setEnabled(true);
+                JOptionPane.showMessageDialog(rootPane,"Dados inseridos com sucesso!");
+                bt_entrar.setEnabled(true);
+                
+            try{
+        FileWriter arq = new FileWriter ("C:\\Users\\aluno\\Desktop\\Cadastro do usuário.txt");
+        PrintWriter gravarArq = new PrintWriter(arq);
+        
+        gravarArq.println("+---------CADASTRO USUÁRIO--------+");
+        gravarArq.println("Nome Completo: " + name_user.getText());
+        gravarArq.println("Senha: " + senha_user.getPassword());
+        gravarArq.println("Data Completo: " + date_user.getText());
+        gravarArq.println("Telefone: " + telefone_user.getText());
+        gravarArq.println("CPF: " + cpf_user.getText());
+        gravarArq.println("Email: " + email_user.getText());
+        gravarArq.println("Estado: " + estado_user.getText());
+        gravarArq.println("Cidade: " + cidade_user.getText());
+        gravarArq.println("Rua: " + rua_user.getText());
+        gravarArq.println("Cep: " + cep_user.getText());
+        gravarArq.println("+---------------------------+");
+        
+        
+        gravarArq.close();
+        
+        } catch (IOException ex) {
+            Logger.getLogger(Cadastro_Cliente.class.getName()).log(Level.SEVERE, null, ex);
+            
+        }
                 
             } else {
                 System.out.println("Nenhum dado inserido.");
@@ -484,9 +533,9 @@ public class Cadastro_Cliente extends javax.swing.JFrame {
     }//GEN-LAST:event_Bot_Voltar_Para_LoginActionPerformed
 
     private void bt_entrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_entrarActionPerformed
-         Cadastro_Cliente.this.dispose();
-         Lista_de_Produtos listagem = new Lista_de_Produtos();
-         listagem.setVisible(true);
+        Cadastro_Cliente.this.dispose();
+        Login login = new Login();
+        login.setVisible(true);
          
     }//GEN-LAST:event_bt_entrarActionPerformed
 
@@ -510,6 +559,22 @@ public class Cadastro_Cliente extends javax.swing.JFrame {
             
         }
     }//GEN-LAST:event_Select
+
+    private void excluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_excluirActionPerformed
+        // TODO add your handling code here:
+        id_user.setText("");
+        senha_user.setText("");
+        name_user.setText("");
+        estado_user.setText("");
+        date_user.setText("");
+        cidade_user.setText("");
+        telefone_user.setText("");
+        rua_user.setText("");
+        cpf_user.setText("");
+        num_user.setText("");
+        email_user.setText("");
+        cep_user.setText("");
+    }//GEN-LAST:event_excluirActionPerformed
 
     /**
      * @param args the command line arguments
@@ -560,6 +625,7 @@ public class Cadastro_Cliente extends javax.swing.JFrame {
     private javax.swing.JTextField date_user;
     private javax.swing.JTextField email_user;
     private javax.swing.JTextField estado_user;
+    private javax.swing.JButton excluir;
     private javax.swing.JTextField id_user;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;

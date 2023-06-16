@@ -216,7 +216,7 @@
                                       </Group>
                                   </Group>
                               </Group>
-                              <Component id="senha_user" alignment="0" min="-2" pref="153" max="-2" attributes="0"/>
+                              <Component id="senha_funcionario" alignment="0" min="-2" pref="99" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace max="32767" attributes="0"/>
                       </Group>
@@ -309,9 +309,9 @@
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="telefone_user" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="senha_user" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="senha_funcionario" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace pref="49" max="32767" attributes="0"/>
+                  <EmptySpace pref="50" max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="Bt_Salvar_CadastroFuncionario" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="excluir" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -351,6 +351,7 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Arial" size="12" style="0"/>
             </Property>
+            <Property name="text" type="java.lang.String" value="2023-01-15"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="date_userActionPerformed"/>
@@ -365,6 +366,9 @@
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="cpf_user">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="000.000.000-00"/>
+          </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cpf_userActionPerformed"/>
           </Events>
@@ -378,6 +382,9 @@
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="name_user5">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="00.000.000-0"/>
+          </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="name_user5ActionPerformed"/>
           </Events>
@@ -575,13 +582,7 @@
             <Property name="text" type="java.lang.String" value="Sobrenome"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JPasswordField" name="senha_user">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="jPasswordField1"/>
-          </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="senha_userActionPerformed"/>
-          </Events>
+        <Component class="javax.swing.JPasswordField" name="senha_funcionario">
         </Component>
       </SubComponents>
     </Container>

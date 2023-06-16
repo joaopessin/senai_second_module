@@ -17,6 +17,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import javax.swing.table.DefaultTableModel;
 
+
 /**
  *
  * @author jvpes
@@ -83,7 +84,6 @@ public class Pagamento extends javax.swing.JFrame {
         btn_cancelar = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         txt_id = new javax.swing.JTextField();
-        btn_inserir = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         tb_dados = new javax.swing.JTable();
 
@@ -183,6 +183,7 @@ public class Pagamento extends javax.swing.JFrame {
         jLabel20.setText("Nome no cartão:");
 
         txt_num_cartao.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        txt_num_cartao.setText("0000 0000 0000 0000");
 
         jLabel21.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel21.setText("Número no cartão:");
@@ -205,6 +206,7 @@ public class Pagamento extends javax.swing.JFrame {
         jLabel24.setText("Ano de validade:");
 
         txt_cvv.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        txt_cvv.setText("000");
 
         radio_debito.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         radio_debito.setText("Débito");
@@ -328,7 +330,7 @@ public class Pagamento extends javax.swing.JFrame {
         jLabel18.setText("Nome Completo:");
 
         txt_data_nasc.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        txt_data_nasc.setText("YYYY / MM / DD");
+        txt_data_nasc.setText("2023-01-15");
         txt_data_nasc.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txt_data_nascActionPerformed(evt);
@@ -450,7 +452,7 @@ public class Pagamento extends javax.swing.JFrame {
                 .addComponent(check_pix)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel16)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(33, Short.MAX_VALUE))
         );
         jPanel8Layout.setVerticalGroup(
             jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -492,26 +494,16 @@ public class Pagamento extends javax.swing.JFrame {
             }
         });
 
-        btn_inserir.setBackground(new java.awt.Color(17, 69, 139));
-        btn_inserir.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        btn_inserir.setForeground(new java.awt.Color(229, 237, 248));
-        btn_inserir.setText("Inserir");
-        btn_inserir.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_inserirActionPerformed(evt);
-            }
-        });
-
         tb_dados.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "id_usuario", "nome", "data_nascimento", "cpf_cnpj", "nome_cartao", "num_cartao", "mes_valid", "ano_valid", "cvv", "parcelas"
+                "id", "nome", "data_nascimento", "cpf_cnpj", "nome_cartao", "num_cartao", "mes_valid", "ano_valid", "cvv", "parcelas"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false, false, false, false, false
+                true, false, false, false, false, false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -546,19 +538,17 @@ public class Pagamento extends javax.swing.JFrame {
                             .addComponent(jScrollPane1)
                             .addGroup(jPanel5Layout.createSequentialGroup()
                                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(jPanel5Layout.createSequentialGroup()
                                         .addGap(48, 48, 48)
                                         .addComponent(jLabel2))
                                     .addGroup(jPanel5Layout.createSequentialGroup()
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                             .addComponent(txt_id)
                                             .addComponent(jPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                         .addGap(18, 18, 18)
-                                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                            .addComponent(jPanel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                            .addComponent(btn_inserir, javax.swing.GroupLayout.DEFAULT_SIZE, 101, Short.MAX_VALUE))))))
+                                        .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                         .addGap(0, 22, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -580,16 +570,15 @@ public class Pagamento extends javax.swing.JFrame {
                                 .addGap(18, 18, 18)
                                 .addComponent(jLabel2)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(txt_id, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(btn_inserir)))
-                            .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 401, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
-                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(btn_comprar)
-                            .addComponent(btn_cancelar))))
+                                .addComponent(txt_id, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 117, Short.MAX_VALUE))
+                            .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, 220, Short.MAX_VALUE))
+                        .addGap(18, 18, 18)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 401, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btn_comprar)
+                    .addComponent(btn_cancelar))
                 .addGap(6, 6, 6))
         );
 
@@ -657,54 +646,26 @@ public class Pagamento extends javax.swing.JFrame {
     
     private void btn_comprarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_comprarActionPerformed
         
-        JOptionPane.showMessageDialog(rootPane, "Compra efetuada!");
+        //JOptionPane.showMessageDialog(rootPane, "Compra efetuada!");
         
-        FileWriter arquivo = null;
-        try {
-            // TODO add your handling code here:
-            arquivo = new FileWriter("C:\\Users\\aluno\\Desktop\\arquivo.txt");
-            PrintWriter gravar = new PrintWriter(arquivo);
-            gravar.printf("-----------CADASTRO DE PRODUTO------");
-            gravar.printf("\nNome completo: " + txt_nome.getText());
-            gravar.printf("\nData de nascimento: " + txt_data_nasc.getText());
-            gravar.printf("\nNúmero do CPF / CNPJ: " + txt_num_cpf_cnpj.getText());
-            gravar.printf("\nNome no cartão: " + txt_nome_cartao.getText());
-            gravar.printf("\nNúmero no cartão: " + txt_num_cartao.getText());
-            gravar.printf("\nMês de validade: " + select_mes_validade.getSelectedItem().toString());
-            gravar.printf("\nAno de validade: " + select_ano_validade.getSelectedItem().toString());
-            gravar.printf("\nCVV: " + txt_cvv.getText());
-            gravar.printf("\n---------------------------");
-        } catch (IOException ex) {
-            Logger.getLogger(Pagamento.class.getName()).log(Level.SEVERE, null, ex);
-        } finally {
-            try {
-                arquivo.close();
-            } catch (IOException ex) {
-                Logger.getLogger(Pagamento.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        }
-    }//GEN-LAST:event_btn_comprarActionPerformed
-
-    private void btn_voltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_voltarActionPerformed
-        // TODO add your handling code here:
-        Pagamento.this.dispose();
-        Acesso_ao_Produto acessoProduto = new Acesso_ao_Produto();
-        acessoProduto.setVisible(true);
-    }//GEN-LAST:event_btn_voltarActionPerformed
-
-    private void txt_idActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_idActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txt_idActionPerformed
-
-    private void btn_inserirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_inserirActionPerformed
-        // TODO add your handling code here:
         Connection conexao = null;
         PreparedStatement statement = null;
 
         String url = "jdbc:mysql://localhost:3307/fashion_foot";
         String usuario = "ff_lucas";
         String senha = "123456";
-
+        
+        String[] opcoes = {"Sim", "Não"};
+        int resposta = JOptionPane.showOptionDialog(rootPane, "Tem certeza que desja comprar esse produto?", "Confirmação", JOptionPane.DEFAULT_OPTION, JOptionPane.QUESTION_MESSAGE, null, opcoes, opcoes[0]);
+        
+        if (resposta == JOptionPane.YES_OPTION) {
+            
+            btn_comprar.setEnabled(false);
+      
+        } else {
+            
+        }
+        
         try {
             conexao = DriverManager.getConnection(url, usuario, senha);
 
@@ -722,15 +683,18 @@ public class Pagamento extends javax.swing.JFrame {
             statement.setString(6, select_ano_validade.getSelectedItem().toString());
             statement.setString(7, txt_cvv.getText());
             statement.setString(8, select_parcelas.getSelectedItem().toString());
-            //statement.execute();
-            // statement.close();
 
             int linhasAfetadas = statement.executeUpdate();
 
             if (linhasAfetadas > 0) {
 
-                JOptionPane.showMessageDialog(rootPane, "Dados inseridos com sucesso!");
-
+                JOptionPane.showMessageDialog(rootPane, "Compra realizada com sucesso!");
+                this.PopularJTable("SELECT * FROM pagamento");
+                
+                Pagamento.this.dispose();
+                Meu_Pedido pedido = new Meu_Pedido();
+                pedido.setVisible(true);
+                
             } else {
                 JOptionPane.showMessageDialog(rootPane, "Nenhum dado inserido!");
             }
@@ -748,7 +712,40 @@ public class Pagamento extends javax.swing.JFrame {
             } catch (SQLException e) {
                 JOptionPane.showMessageDialog(rootPane, "Erro de fechamento!");
             }}
-    }//GEN-LAST:event_btn_inserirActionPerformed
+                
+        FileWriter arquivo = null;
+        try {
+            // TODO add your handling code here:
+            arquivo = new FileWriter("C:\\Users\\aluno\\Desktop\\Comprovante.txt");
+            PrintWriter gravar = new PrintWriter(arquivo);
+            gravar.printf("-----------Comprovante de Compra------");
+            gravar.printf("\nNome completo: " + txt_nome.getText());
+            gravar.printf("\nData de nascimento: " + txt_data_nasc.getText());
+            gravar.printf("\nNúmero do CPF / CNPJ: " + txt_num_cpf_cnpj.getText());
+            gravar.printf("\nNome no cartão: " + txt_nome_cartao.getText());
+            gravar.printf("\nNúmero no cartão: " + txt_num_cartao.getText());
+            gravar.printf("\nMês de validade: " + select_parcelas.getSelectedItem().toString());
+            gravar.printf("\nMês de validade: " + select_mes_validade.getSelectedItem().toString());
+            gravar.printf("\nAno de validade: " + select_ano_validade.getSelectedItem().toString());
+            gravar.printf("\n---------------------------");
+            
+        } catch (IOException ex) {
+            Logger.getLogger(Pagamento.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            try {
+                arquivo.close();
+            } catch (IOException ex) {
+                Logger.getLogger(Pagamento.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+    }//GEN-LAST:event_btn_comprarActionPerformed
+
+    private void btn_voltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_voltarActionPerformed
+        // TODO add your handling code here:
+        Pagamento.this.dispose();
+        Acesso_Ao_Produto acessoProduto = new Acesso_Ao_Produto();
+        acessoProduto.setVisible(true);
+    }//GEN-LAST:event_btn_voltarActionPerformed
 
     private void txt_data_nascActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_data_nascActionPerformed
         // TODO add your handling code here:
@@ -773,12 +770,14 @@ public class Pagamento extends javax.swing.JFrame {
 
     private void Clique(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Clique
         // TODO add your handling code here:
-         int linha = tb_dados.getSelectedRow();
+        int linha = tb_dados.getSelectedRow();
+        txt_id.setText(tb_dados.getValueAt(linha, 0).toString());
         txt_nome.setText(tb_dados.getValueAt(linha,1).toString());
-        txt_num_cpf_cnpj.setText(tb_dados.getValueAt(linha,5).toString());
+        txt_data_nasc.setText(tb_dados.getValueAt(linha,2).toString());
+        txt_num_cpf_cnpj.setText(tb_dados.getValueAt(linha,3).toString());
         txt_nome_cartao.setText(tb_dados.getValueAt(linha,4).toString());
-        txt_num_cartao.setText(tb_dados.getValueAt(linha,3).toString());
-        txt_cvv.setText(tb_dados.getValueAt(linha,4).toString());
+        txt_num_cartao.setText(tb_dados.getValueAt(linha,5).toString());
+        txt_cvv.setText(tb_dados.getValueAt(linha,8).toString());
       
     }//GEN-LAST:event_Clique
 
@@ -791,6 +790,10 @@ public class Pagamento extends javax.swing.JFrame {
         // TODO add your handling code here:
         JOptionPane.showMessageDialog(rootPane, "Compra cancelada!");
     }//GEN-LAST:event_btn_cancelarActionPerformed
+
+    private void txt_idActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_idActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt_idActionPerformed
 
     /**
      * @param args the command line arguments
@@ -831,7 +834,6 @@ public class Pagamento extends javax.swing.JFrame {
     private javax.swing.JButton btn_cancelar;
     private javax.swing.JButton btn_comprar;
     private javax.swing.JButton btn_foto;
-    private javax.swing.JButton btn_inserir;
     private javax.swing.JToggleButton btn_voltar;
     private javax.swing.JRadioButton check_boleto;
     private javax.swing.JRadioButton check_cartao;

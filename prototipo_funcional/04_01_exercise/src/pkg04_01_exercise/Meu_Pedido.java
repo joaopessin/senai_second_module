@@ -4,18 +4,64 @@
  */
 package pkg04_01_exercise;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import javax.swing.table.DefaultTableModel;
+
+
 /**
  *
  * @author jvpes
  */
-public class Pedido extends javax.swing.JFrame {
+public class Meu_Pedido extends javax.swing.JFrame {
 
     /**
      * Creates new form Pedido
      */
-    public Pedido() {
+    public Meu_Pedido() {
         initComponents();
     }
+    
+    
+    public void PopularJTable(String sql) {
+    try
+  {
+   Connection con=(Connection)DriverManager.getConnection("jdbc:mysql://localhost:3307/fashion_foot", "ff_layson", "123456");
+   PreparedStatement banco = (PreparedStatement)con.prepareStatement(sql);
+   banco.execute(); 
+ 
+   ResultSet resultado = banco.executeQuery(sql);
+ 
+   DefaultTableModel model =(DefaultTableModel) Tabela_pedido.getModel();
+   model.setNumRows(0);
+ 
+   while(resultado.next())
+   {
+       model.addRow(new Object[] 
+       { 
+          //retorna os dados da tabela do BD, cada campo e um coluna.
+          //codigo,nome,condicao,tamanho,unidades,categoria,preco,valor_venda,peso,descricao
+          
+          resultado.getString("codigo"),
+          resultado.getString("nome"),
+          resultado.getString("condicao"),
+         
+          resultado.getString("valor_venda"),
+          resultado.getString("peso"),
+          resultado.getString("descricao")
+       }); 
+  } 
+   banco.close();
+   con.close();
+  }
+ catch (SQLException ex)
+ {
+    System.out.println("o erro foi " +ex);
+  }
+ }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -26,6 +72,8 @@ public class Pedido extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
         jPanel1 = new javax.swing.JPanel();
         btn_voltar = new javax.swing.JToggleButton();
         jLabel1 = new javax.swing.JLabel();
@@ -60,8 +108,28 @@ public class Pedido extends javax.swing.JFrame {
         jLabel37 = new javax.swing.JLabel();
         jLabel38 = new javax.swing.JLabel();
         jLabel39 = new javax.swing.JLabel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        Tabela_pedido = new javax.swing.JTable();
+
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane1.setViewportView(jTable1);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowOpened(java.awt.event.WindowEvent evt) {
+                Select(evt);
+            }
+        });
 
         jPanel1.setBackground(new java.awt.Color(17, 69, 139));
 
@@ -195,7 +263,7 @@ public class Pedido extends javax.swing.JFrame {
                         .addGap(133, 133, 133)
                         .addComponent(jLabel26))
                     .addComponent(slider_situacao, javax.swing.GroupLayout.PREFERRED_SIZE, 710, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(29, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -215,7 +283,7 @@ public class Pedido extends javax.swing.JFrame {
 
         jLabel17.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jLabel17.setForeground(new java.awt.Color(17, 69, 139));
-        jLabel17.setText("Produtos recentes");
+        jLabel17.setText("Produtos já comprados");
 
         jLabel27.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel27.setText("Nome do produto");
@@ -332,7 +400,7 @@ public class Pedido extends javax.swing.JFrame {
             .addGroup(jPanel5Layout.createSequentialGroup()
                 .addGap(21, 21, 21)
                 .addComponent(jLabel17)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel33)
                     .addComponent(jLabel27)
@@ -356,6 +424,16 @@ public class Pedido extends javax.swing.JFrame {
                 .addGap(23, 23, 23))
         );
 
+        Tabela_pedido.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Código de Produto", "Nome do produto", "condicao", "Valor de Venda"
+            }
+        ));
+        jScrollPane2.setViewportView(Tabela_pedido);
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -363,6 +441,7 @@ public class Pedido extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane2)
                     .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -376,8 +455,10 @@ public class Pedido extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+                .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(16, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -402,13 +483,33 @@ public class Pedido extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    
+    
     private void btn_voltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_voltarActionPerformed
         // TODO add your handling code here:
-        Pedido.this.dispose();
-        Menu menu = new Menu();
+        Meu_Pedido.this.dispose();
+        Menu_Cliente menu = new Menu_Cliente();
         menu.setVisible(true);
         
     }//GEN-LAST:event_btn_voltarActionPerformed
+
+    private void Select(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_Select
+        // TODO add your handling code here:
+        Connection conexao = null;
+        PreparedStatement statement = null;
+
+        String url = "jdbc:mysql://localhost:3307/fashion_foot";
+        String usuario = "ff_lucas";
+        String senha = "123456";
+        
+        try {
+        conexao = DriverManager.getConnection(url, usuario, senha);
+        this.PopularJTable("SELECT * FROM cadastro_produto id");
+        } catch (SQLException ex) {
+            
+        }
+                          
+    }//GEN-LAST:event_Select
 
     /**
      * @param args the command line arguments
@@ -427,25 +528,27 @@ public class Pedido extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Pedido.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Meu_Pedido.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Pedido.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Meu_Pedido.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Pedido.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Meu_Pedido.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Pedido.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Meu_Pedido.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Pedido().setVisible(true);
+                new Meu_Pedido().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTable Tabela_pedido;
     private javax.swing.JToggleButton btn_voltar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel17;
@@ -476,6 +579,9 @@ public class Pedido extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JTable jTable1;
     private javax.swing.JLabel label_codigo_pedido;
     private javax.swing.JLabel label_nome_pedido;
     private javax.swing.JLabel label_situacao_pedido;

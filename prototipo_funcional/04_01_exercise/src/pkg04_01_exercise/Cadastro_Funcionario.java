@@ -77,7 +77,7 @@ public class Cadastro_Funcionario extends javax.swing.JFrame {
         jLabel15 = new javax.swing.JLabel();
         name_user2 = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
-        senha_user = new javax.swing.JPasswordField();
+        senha_funcionario = new javax.swing.JPasswordField();
 
         name_user.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -144,6 +144,7 @@ public class Cadastro_Funcionario extends javax.swing.JFrame {
         jLabel4.setText("Data Nascimento");
 
         date_user.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        date_user.setText("2023-01-15");
         date_user.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 date_userActionPerformed(evt);
@@ -153,6 +154,7 @@ public class Cadastro_Funcionario extends javax.swing.JFrame {
         jLabel5.setFont(new java.awt.Font("Arial", 1, 16)); // NOI18N
         jLabel5.setText("CPF");
 
+        cpf_user.setText("000.000.000-00");
         cpf_user.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cpf_userActionPerformed(evt);
@@ -162,6 +164,7 @@ public class Cadastro_Funcionario extends javax.swing.JFrame {
         jLabel6.setFont(new java.awt.Font("Arial", 1, 16)); // NOI18N
         jLabel6.setText("RG");
 
+        name_user5.setText("00.000.000-0");
         name_user5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 name_user5ActionPerformed(evt);
@@ -278,13 +281,6 @@ public class Cadastro_Funcionario extends javax.swing.JFrame {
         jLabel3.setFont(new java.awt.Font("Arial", 1, 16)); // NOI18N
         jLabel3.setText("Sobrenome");
 
-        senha_user.setText("jPasswordField1");
-        senha_user.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                senha_userActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -360,7 +356,7 @@ public class Cadastro_Funcionario extends javax.swing.JFrame {
                                         .addComponent(excluir)
                                         .addGap(59, 59, 59)
                                         .addComponent(Bt_Salvar_CadastroFuncionario))))
-                            .addComponent(senha_user, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(senha_funcionario, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         jPanel2Layout.setVerticalGroup(
@@ -429,8 +425,8 @@ public class Cadastro_Funcionario extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(telefone_user, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(senha_user, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 49, Short.MAX_VALUE)
+                    .addComponent(senha_funcionario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 50, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(Bt_Salvar_CadastroFuncionario)
                     .addComponent(excluir)
@@ -504,18 +500,30 @@ public class Cadastro_Funcionario extends javax.swing.JFrame {
 
     private void excluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_excluirActionPerformed
         // TODO add your handling code here:
+        name_user1.setText("");
+        name_user2.setText("");
+        date_user.setText("");
+        cpf_user.setText("");
+        name_user5.setText("");
+        email_user.setText("");
+        cep_user.setText("");
+        estado_user.setText("");
+        bairro_user.setText("");
+        num_user.setText("");
+        telefone_user.setText("");
+        senha_funcionario.setText("");
     }//GEN-LAST:event_excluirActionPerformed
 
     private void Bt_Voltar_Para_LoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Bt_Voltar_Para_LoginActionPerformed
         // TODO add your handling code here:
         Cadastro_Funcionario.this.dispose();
-        Layson_Opcoes_de_Conta opcoesConta = new Layson_Opcoes_de_Conta();
+        Opcoes_De_Conta opcoesConta = new Opcoes_De_Conta();
         opcoesConta.setVisible(true);
     }//GEN-LAST:event_Bt_Voltar_Para_LoginActionPerformed
 
     private void exportActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exportActionPerformed
         // TODO add your handling code here:
-         try{
+        try{
         FileWriter arq = new FileWriter ("C:\\Users\\aluno\\Desktop\\cadastro_funcionario.txt");
         PrintWriter gravarArq = new PrintWriter(arq);
         
@@ -536,7 +544,7 @@ public class Cadastro_Funcionario extends javax.swing.JFrame {
         gravarArq.close();
         
         } catch (IOException ex) {
-            Logger.getLogger(Cadastro.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Cadastro_Cliente.class.getName()).log(Level.SEVERE, null, ex);
             
         }
     }//GEN-LAST:event_exportActionPerformed
@@ -544,8 +552,8 @@ public class Cadastro_Funcionario extends javax.swing.JFrame {
     private void Bt_Entrar_FuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Bt_Entrar_FuncionarioActionPerformed
         // TODO add your handling code here:
         Cadastro_Funcionario.this.dispose();
-        Comercial comercial = new Comercial();
-        comercial.setVisible(true);
+        Login loginFuncionario = new Login();
+        loginFuncionario.setVisible(true);
         
     }//GEN-LAST:event_Bt_Entrar_FuncionarioActionPerformed
 
@@ -578,7 +586,7 @@ public class Cadastro_Funcionario extends javax.swing.JFrame {
             statement.setString(11, bairro_user.getText());
             statement.setString(12, num_user.getText());
             statement.setString(13, telefone_user.getText());
-            statement.setString(14,new String (senha_user.getPassword()));
+            statement.setString(14, new String (senha_funcionario.getPassword()));
             
             int linhasAfetadas = statement.executeUpdate();
             
@@ -591,7 +599,7 @@ public class Cadastro_Funcionario extends javax.swing.JFrame {
             }
             
         } catch (SQLException ex) {
-            Logger.getLogger(Layson_Tela_CadastroProduto.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Cadastro_De_Produto.class.getName()).log(Level.SEVERE, null, ex);
         } finally {
              try {
                 if (statement != null) {
@@ -615,10 +623,6 @@ public class Cadastro_Funcionario extends javax.swing.JFrame {
         // TODO add your handling code here:
         Bt_Entrar_Funcionario.setEnabled(false);
     }//GEN-LAST:event_Open
-
-    private void senha_userActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_senha_userActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_senha_userActionPerformed
 
     /**
      * @param args the command line arguments
@@ -691,7 +695,7 @@ public class Cadastro_Funcionario extends javax.swing.JFrame {
     private javax.swing.JTextField name_user2;
     private javax.swing.JTextField name_user5;
     private javax.swing.JTextField num_user;
-    private javax.swing.JPasswordField senha_user;
+    private javax.swing.JPasswordField senha_funcionario;
     private javax.swing.JTextField telefone_user;
     // End of variables declaration//GEN-END:variables
 }

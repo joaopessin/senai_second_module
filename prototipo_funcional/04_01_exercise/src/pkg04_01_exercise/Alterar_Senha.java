@@ -289,6 +289,10 @@ public class Alterar_Senha extends javax.swing.JFrame {
             
             if (linhasAfetadas > 0) {
                 JOptionPane.showMessageDialog(rootPane,"Senha atualizada com sucesso!");
+                Alterar_Senha.this.dispose();
+                Login voltaLogin = new Login();
+                voltaLogin.setVisible(true);
+                
                 
             } else {
                 JOptionPane.showMessageDialog(rootPane,"Nenhum dado atualizado.");
@@ -330,8 +334,8 @@ public class Alterar_Senha extends javax.swing.JFrame {
 
     private void BT_CancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BT_CancelarActionPerformed
         // TODO add your handling code here:
-         txt_cpf_alterarSenha.setText("");
-         txt_senha_alterarSenha.setText("");
+        txt_cpf_alterarSenha.setText("");
+        txt_senha_alterarSenha.setText("");
         
     }//GEN-LAST:event_BT_CancelarActionPerformed
 

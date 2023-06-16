@@ -36,6 +36,7 @@ public class Menu extends javax.swing.JFrame {
         btn_pedidos = new javax.swing.JButton();
         btn_inicio = new javax.swing.JButton();
         btn_faq = new javax.swing.JButton();
+        btn_agendamento_perfil = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -114,23 +115,33 @@ public class Menu extends javax.swing.JFrame {
             }
         });
 
+        btn_agendamento_perfil.setBackground(new java.awt.Color(17, 69, 139));
+        btn_agendamento_perfil.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
+        btn_agendamento_perfil.setForeground(new java.awt.Color(229, 237, 248));
+        btn_agendamento_perfil.setText("AGENDAMENTO");
+        btn_agendamento_perfil.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_agendamento_perfilActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(152, 152, 152)
-                .addComponent(btn_faq, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(41, 41, 41)
-                .addComponent(btn_sair, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(23, 23, 23)
-                .addComponent(btn_inicio, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(btn_faq, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btn_inicio, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btn_editar_perfil, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(btn_agendamento_perfil, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btn_editar_perfil, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(40, 40, 40)
-                .addComponent(btn_pedidos, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btn_pedidos, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btn_sair, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(23, 23, 23))
         );
         jPanel2Layout.setVerticalGroup(
@@ -144,7 +155,8 @@ public class Menu extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 36, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btn_faq, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btn_sair, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btn_sair, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btn_agendamento_perfil, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(37, 37, 37))
         );
 
@@ -176,14 +188,14 @@ public class Menu extends javax.swing.JFrame {
     private void btn_inicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_inicioActionPerformed
         // TODO add your handling code here:
         Menu.this.dispose();
-        Listagem_Produto listagemProduto = new Listagem_Produto();
+        Lista_de_Produtos listagemProduto = new Lista_de_Produtos();
         listagemProduto.setVisible(true);
     }//GEN-LAST:event_btn_inicioActionPerformed
 
     private void btn_faqActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_faqActionPerformed
         // TODO add your handling code here:
         Menu.this.dispose();
-        Faq faq = new Faq();
+        faq faq = new faq();
         faq.setVisible(true);
     }//GEN-LAST:event_btn_faqActionPerformed
 
@@ -191,15 +203,15 @@ public class Menu extends javax.swing.JFrame {
         // TODO add your handling code here:
         String[] opcoes = {"Sim", "Não"};
         int resposta = JOptionPane.showOptionDialog(rootPane, "Tem certeza que desja sair?", "Confirmação", JOptionPane.DEFAULT_OPTION, JOptionPane.QUESTION_MESSAGE, null, opcoes, opcoes[0]);
-        
+       
         if (resposta == JOptionPane.YES_OPTION) {
-            
+           
         Menu.this.dispose();
         Login login = new Login();
         login.setVisible(true);
-        
+       
         } else {
-            
+           
         }
         
     }//GEN-LAST:event_btn_sairActionPerformed
@@ -211,6 +223,13 @@ public class Menu extends javax.swing.JFrame {
         editPerfil.setVisible(true);
         
     }//GEN-LAST:event_btn_editar_perfilActionPerformed
+
+    private void btn_agendamento_perfilActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_agendamento_perfilActionPerformed
+        // TODO add your handling code here:
+        Menu.this.dispose();
+        Agendamento agendar = new Agendamento();
+        agendar.setVisible(true);
+    }//GEN-LAST:event_btn_agendamento_perfilActionPerformed
 
     /**
      * @param args the command line arguments
@@ -248,6 +267,7 @@ public class Menu extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btn_agendamento_perfil;
     private javax.swing.JButton btn_editar_perfil;
     private javax.swing.JButton btn_faq;
     private javax.swing.JButton btn_inicio;

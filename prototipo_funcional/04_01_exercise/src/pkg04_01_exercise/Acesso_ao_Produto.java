@@ -15,12 +15,12 @@ import javax.swing.JOptionPane;
  *
  * @author marce
  */
-public class Acesso_ao_Produto extends javax.swing.JFrame {
+public class Acesso_Ao_Produto extends javax.swing.JFrame {
 
     /**
      * Creates new form Layson_Acesso_Ao_Produto
      */
-    public Acesso_ao_Produto() {
+    public Acesso_Ao_Produto() {
         initComponents();
     }
 
@@ -458,29 +458,29 @@ public class Acesso_ao_Produto extends javax.swing.JFrame {
             arq.close();
 
         } catch (IOException ex) {
-            Logger.getLogger(Acesso_ao_Produto.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Acesso_Ao_Produto.class.getName()).log(Level.SEVERE, null, ex);
         }
            
     }//GEN-LAST:event_bt_enviarActionPerformed
 
     private void Comprar_agoraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Comprar_agoraActionPerformed
         // TODO add your handling code here:
-        Acesso_ao_Produto.this.dispose();
+        Acesso_Ao_Produto.this.dispose();
         Pagamento pagamento = new Pagamento();
         pagamento.setVisible(true);
     }//GEN-LAST:event_Comprar_agoraActionPerformed
 
     private void bt_adicionar_carrinhoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_adicionar_carrinhoActionPerformed
         // TODO add your handling code here:
-        Acesso_ao_Produto.this.dispose();
+        Acesso_Ao_Produto.this.dispose();
         Carrinho carrinho = new Carrinho();
         carrinho.setVisible(true);
     }//GEN-LAST:event_bt_adicionar_carrinhoActionPerformed
 
     private void Btao_voltrActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btao_voltrActionPerformed
         // TODO add your handling code here:
-        Acesso_ao_Produto.this.dispose();
-        Listagem_Produto listagem = new Listagem_Produto();
+        Acesso_Ao_Produto.this.dispose();
+        Lista_de_Produtos listagem = new Lista_de_Produtos();
         listagem.setVisible(true);
     }//GEN-LAST:event_Btao_voltrActionPerformed
 
@@ -501,14 +501,18 @@ public class Acesso_ao_Produto extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Acesso_ao_Produto.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Acesso_Ao_Produto.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Acesso_ao_Produto.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Acesso_Ao_Produto.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Acesso_ao_Produto.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Acesso_Ao_Produto.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Acesso_ao_Produto.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Acesso_Ao_Produto.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
@@ -517,7 +521,7 @@ public class Acesso_ao_Produto extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Acesso_ao_Produto().setVisible(true);
+                new Acesso_Ao_Produto().setVisible(true);
             }
         });
     }

@@ -42,17 +42,17 @@ public class Editar_Perfil extends javax.swing.JFrame {
        model.addRow(new Object[] 
        { 
           //retorna os dados da tabela do BD, cada campo e um coluna.
-          resultado.getString("id_usuario"),
-          resultado.getString("nome"),
-          resultado.getString("sobrenome"),
-          resultado.getString("data_nascimento"),
+          resultado.getString("id"),
+          resultado.getString("nome_completo"),
+          resultado.getString("data_nasc"),
+          resultado.getString("telefone"),
           resultado.getString("cpf"),
-          resultado.getString("e_mail"),
-          resultado.getString("cep"),
+          resultado.getString("email"),
           resultado.getString("estado"),
           resultado.getString("cidade"),
           resultado.getString("rua"),
-          resultado.getString("numero")
+          resultado.getString("number_casa"),
+          resultado.getString("cep")
        }); 
   } 
    banco.close();
@@ -90,14 +90,8 @@ public class Editar_Perfil extends javax.swing.JFrame {
         txt_cidade = new javax.swing.JTextField();
         txt_estado = new javax.swing.JTextField();
         txt_cpf = new javax.swing.JTextField();
-        txt_sobrenome = new javax.swing.JTextField();
         txt_data_nascimento = new javax.swing.JTextField();
-        txt_id_usuario = new javax.swing.JTextField();
-        btn_cancelar = new javax.swing.JButton();
-        btn_confirmar_alteracoes = new javax.swing.JButton();
-        jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
@@ -106,22 +100,21 @@ public class Editar_Perfil extends javax.swing.JFrame {
         jLabel12 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
         jLabel19 = new javax.swing.JLabel();
+        jLabel20 = new javax.swing.JLabel();
+        txt_telefone = new javax.swing.JTextField();
         jPanel8 = new javax.swing.JPanel();
         btn_alterar_senha = new javax.swing.JButton();
         jLabel16 = new javax.swing.JLabel();
         btn_excluir_conta = new javax.swing.JButton();
-        btn_inserir = new javax.swing.JButton();
-        btn_atualizar = new javax.swing.JButton();
-        btn_deletar = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jLabel17 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tb_dados = new javax.swing.JTable();
-        txt_deletar = new javax.swing.JTextField();
-        jLabel2 = new javax.swing.JLabel();
         txt_atualizar = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         jLabel18 = new javax.swing.JLabel();
+        btn_confirmar_alteracoes = new javax.swing.JButton();
+        btn_cancelar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
@@ -155,7 +148,7 @@ public class Editar_Perfil extends javax.swing.JFrame {
                 .addComponent(btn_voltar)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel1)
-                .addContainerGap(991, Short.MAX_VALUE))
+                .addContainerGap(1094, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -175,6 +168,11 @@ public class Editar_Perfil extends javax.swing.JFrame {
         btn_alterar_foto.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         btn_alterar_foto.setForeground(new java.awt.Color(229, 237, 248));
         btn_alterar_foto.setText("Alterar foto");
+        btn_alterar_foto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_alterar_fotoActionPerformed(evt);
+            }
+        });
 
         jLabel14.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jLabel14.setForeground(new java.awt.Color(17, 69, 139));
@@ -217,6 +215,7 @@ public class Editar_Perfil extends javax.swing.JFrame {
         txt_email.setFont(new java.awt.Font("Arial", 2, 12)); // NOI18N
 
         txt_cep.setFont(new java.awt.Font("Arial", 2, 12)); // NOI18N
+        txt_cep.setText("00000-000");
         txt_cep.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txt_cepActionPerformed(evt);
@@ -232,36 +231,19 @@ public class Editar_Perfil extends javax.swing.JFrame {
         txt_estado.setFont(new java.awt.Font("Arial", 2, 12)); // NOI18N
 
         txt_cpf.setFont(new java.awt.Font("Arial", 2, 12)); // NOI18N
+        txt_cpf.setText("000.000.000-00");
+        txt_cpf.setEnabled(false);
         txt_cpf.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txt_cpfActionPerformed(evt);
             }
         });
 
-        txt_sobrenome.setFont(new java.awt.Font("Arial", 2, 12)); // NOI18N
-
         txt_data_nascimento.setFont(new java.awt.Font("Arial", 2, 12)); // NOI18N
+        txt_data_nascimento.setText("2023-01-15");
+        txt_data_nascimento.setEnabled(false);
 
-        btn_cancelar.setBackground(new java.awt.Color(229, 237, 248));
-        btn_cancelar.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        btn_cancelar.setForeground(new java.awt.Color(17, 69, 139));
-        btn_cancelar.setText("Cancelar");
-
-        btn_confirmar_alteracoes.setBackground(new java.awt.Color(17, 69, 139));
-        btn_confirmar_alteracoes.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        btn_confirmar_alteracoes.setForeground(new java.awt.Color(229, 237, 248));
-        btn_confirmar_alteracoes.setText("Confirmar alterações");
-        btn_confirmar_alteracoes.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_confirmar_alteracoesActionPerformed(evt);
-            }
-        });
-
-        jLabel4.setText("Id_usuário");
-
-        jLabel5.setText("Nome");
-
-        jLabel6.setText("Sobrenome");
+        jLabel5.setText("Nome Completo");
 
         jLabel7.setText("Data de Nascimento");
 
@@ -279,113 +261,111 @@ public class Editar_Perfil extends javax.swing.JFrame {
 
         jLabel19.setText("Número");
 
+        jLabel20.setText("Telefone");
+
+        txt_telefone.setFont(new java.awt.Font("Arial", 2, 12)); // NOI18N
+
         javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
         jPanel7.setLayout(jPanel7Layout);
         jPanel7Layout.setHorizontalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel7Layout.createSequentialGroup()
+                .addGap(15, 15, 15)
                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel7Layout.createSequentialGroup()
-                        .addGap(15, 15, 15)
+                        .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel15)
+                            .addGroup(jPanel7Layout.createSequentialGroup()
+                                .addComponent(txt_nome, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel7)
+                                    .addComponent(txt_data_nascimento, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(18, 18, 18)
+                                .addComponent(txt_telefone, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addContainerGap())
+                    .addGroup(jPanel7Layout.createSequentialGroup()
+                        .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(txt_cpf, javax.swing.GroupLayout.DEFAULT_SIZE, 127, Short.MAX_VALUE)
+                            .addComponent(jLabel8, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel7Layout.createSequentialGroup()
+                                .addComponent(jLabel11)
+                                .addGap(48, 48, 48)
+                                .addComponent(jLabel12)))
                         .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel7Layout.createSequentialGroup()
-                                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addComponent(txt_cpf)
-                                    .addComponent(txt_id_usuario)
-                                    .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jLabel8, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jLabel10, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(jPanel7Layout.createSequentialGroup()
-                                        .addGap(6, 6, 6)
-                                        .addComponent(jLabel11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(jLabel13, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addGap(19, 19, 19)
-                                        .addComponent(jLabel19, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                    .addGroup(jPanel7Layout.createSequentialGroup()
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(txt_email, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addGroup(jPanel7Layout.createSequentialGroup()
-                                                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                                    .addComponent(jLabel9, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                    .addComponent(txt_nome, javax.swing.GroupLayout.Alignment.LEADING)
-                                                    .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                    .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                    .addComponent(txt_sobrenome))
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                    .addComponent(jLabel7)
-                                                    .addComponent(txt_data_nascimento, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)))))))
-                            .addGroup(jPanel7Layout.createSequentialGroup()
-                                .addComponent(jLabel15)
+                                .addGap(219, 219, 219)
+                                .addComponent(jLabel20)
                                 .addGap(0, 0, Short.MAX_VALUE))
                             .addGroup(jPanel7Layout.createSequentialGroup()
-                                .addComponent(txt_cep, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(txt_estado, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(txt_cidade, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(txt_rua, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(25, 25, 25)
-                                .addComponent(txt_numero))))
-                    .addGroup(jPanel7Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(btn_cancelar)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(jPanel7Layout.createSequentialGroup()
+                                        .addGap(20, 20, 20)
+                                        .addComponent(jLabel13)
+                                        .addGap(62, 62, 62)
+                                        .addComponent(jLabel19))
+                                    .addComponent(txt_email, javax.swing.GroupLayout.PREFERRED_SIZE, 304, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
+                        .addComponent(txt_numero, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(txt_estado, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(12, 12, 12)
+                        .addComponent(txt_cidade, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btn_confirmar_alteracoes)))
-                .addContainerGap())
+                        .addComponent(txt_rua, javax.swing.GroupLayout.DEFAULT_SIZE, 80, Short.MAX_VALUE)
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel10)
+                            .addComponent(txt_cep, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(37, 37, 37))))
         );
         jPanel7Layout.setVerticalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
                 .addGap(16, 16, 16)
                 .addComponent(jLabel15)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
-                    .addComponent(jLabel5)
-                    .addComponent(jLabel6)
-                    .addComponent(jLabel7))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txt_id_usuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txt_nome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txt_sobrenome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txt_data_nascimento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel8)
-                    .addComponent(jLabel9))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txt_cpf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txt_email, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel10)
-                    .addComponent(jLabel11)
-                    .addComponent(jLabel12)
-                    .addComponent(jLabel13)
-                    .addComponent(jLabel19))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txt_cep, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txt_estado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txt_cidade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txt_rua, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txt_numero, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btn_cancelar)
-                    .addComponent(btn_confirmar_alteracoes))
-                .addContainerGap())
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 15, Short.MAX_VALUE)
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel7Layout.createSequentialGroup()
+                        .addComponent(jLabel5)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txt_nome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txt_data_nascimento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txt_telefone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel8)
+                            .addComponent(jLabel9))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txt_cpf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txt_email, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 15, Short.MAX_VALUE)
+                        .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel13, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel11, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(jLabel10)
+                                .addComponent(jLabel19)
+                                .addComponent(jLabel12)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txt_estado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txt_cidade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txt_rua, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txt_numero, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txt_cep, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jPanel7Layout.createSequentialGroup()
+                        .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel7)
+                            .addComponent(jLabel20))
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addGap(20, 20, 20))
         );
 
         jPanel8.setBackground(new java.awt.Color(255, 255, 255));
@@ -408,6 +388,11 @@ public class Editar_Perfil extends javax.swing.JFrame {
         btn_excluir_conta.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         btn_excluir_conta.setForeground(new java.awt.Color(229, 237, 248));
         btn_excluir_conta.setText("Excluir conta");
+        btn_excluir_conta.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_excluir_contaActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
         jPanel8.setLayout(jPanel8Layout);
@@ -420,9 +405,9 @@ public class Editar_Perfil extends javax.swing.JFrame {
                         .addComponent(jLabel16))
                     .addGroup(jPanel8Layout.createSequentialGroup()
                         .addGap(28, 28, 28)
-                        .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btn_excluir_conta)
-                            .addComponent(btn_alterar_senha))))
+                        .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(btn_alterar_senha, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btn_excluir_conta, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addContainerGap(19, Short.MAX_VALUE))
         );
         jPanel8Layout.setVerticalGroup(
@@ -437,36 +422,6 @@ public class Editar_Perfil extends javax.swing.JFrame {
                 .addGap(27, 27, 27))
         );
 
-        btn_inserir.setBackground(new java.awt.Color(17, 69, 139));
-        btn_inserir.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        btn_inserir.setForeground(new java.awt.Color(229, 237, 248));
-        btn_inserir.setText("Inserir");
-        btn_inserir.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_inserirActionPerformed(evt);
-            }
-        });
-
-        btn_atualizar.setBackground(new java.awt.Color(229, 237, 248));
-        btn_atualizar.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        btn_atualizar.setForeground(new java.awt.Color(17, 69, 139));
-        btn_atualizar.setText("Atualizar");
-        btn_atualizar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_atualizarActionPerformed(evt);
-            }
-        });
-
-        btn_deletar.setBackground(new java.awt.Color(229, 237, 248));
-        btn_deletar.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        btn_deletar.setForeground(new java.awt.Color(17, 69, 139));
-        btn_deletar.setText("Deletar");
-        btn_deletar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_deletarActionPerformed(evt);
-            }
-        });
-
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
 
         jLabel17.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
@@ -478,7 +433,7 @@ public class Editar_Perfil extends javax.swing.JFrame {
 
             },
             new String [] {
-                "id", "nome", "sobrenome", "data_nasc", "cpf", "email", "cep", "estado", "cidade", "rua", "numero"
+                "ID", "nome", "data_nasc", "telefone", "cpf", "email", "estado", "cidade", "rua", "numero", "cep"
             }
         ) {
             boolean[] canEdit = new boolean [] {
@@ -487,6 +442,11 @@ public class Editar_Perfil extends javax.swing.JFrame {
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
                 return canEdit [columnIndex];
+            }
+        });
+        tb_dados.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tb_dadosMouseClicked(evt);
             }
         });
         jScrollPane1.setViewportView(tb_dados);
@@ -511,25 +471,42 @@ public class Editar_Perfil extends javax.swing.JFrame {
                 .addComponent(jLabel17)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(11, Short.MAX_VALUE))
         );
 
-        txt_deletar.setFont(new java.awt.Font("Arial", 2, 12)); // NOI18N
-        txt_deletar.addActionListener(new java.awt.event.ActionListener() {
+        txt_atualizar.setFont(new java.awt.Font("Arial", 2, 12)); // NOI18N
+        txt_atualizar.setEnabled(false);
+        txt_atualizar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txt_deletarActionPerformed(evt);
+                txt_atualizarActionPerformed(evt);
             }
         });
-
-        jLabel2.setText("ID");
-
-        txt_atualizar.setFont(new java.awt.Font("Arial", 2, 12)); // NOI18N
 
         jLabel3.setText("ID");
 
         jLabel18.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jLabel18.setForeground(new java.awt.Color(17, 69, 139));
         jLabel18.setText("Alteração dos dados gerais");
+
+        btn_confirmar_alteracoes.setBackground(new java.awt.Color(17, 69, 139));
+        btn_confirmar_alteracoes.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        btn_confirmar_alteracoes.setForeground(new java.awt.Color(229, 237, 248));
+        btn_confirmar_alteracoes.setText("Confirmar alterações");
+        btn_confirmar_alteracoes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_confirmar_alteracoesActionPerformed(evt);
+            }
+        });
+
+        btn_cancelar.setBackground(new java.awt.Color(229, 237, 248));
+        btn_cancelar.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        btn_cancelar.setForeground(new java.awt.Color(17, 69, 139));
+        btn_cancelar.setText("Cancelar");
+        btn_cancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_cancelarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -542,28 +519,24 @@ public class Editar_Perfil extends javax.swing.JFrame {
                     .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel18))
+                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(jPanel2Layout.createSequentialGroup()
+                            .addGap(49, 49, 49)
+                            .addComponent(btn_confirmar_alteracoes)
+                            .addGap(36, 36, 36)
+                            .addComponent(btn_cancelar)))
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(30, 30, 30)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addGap(36, 36, 36)
-                                .addComponent(jLabel2)
-                                .addGap(84, 84, 84)
-                                .addComponent(jLabel3))
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addComponent(btn_deletar)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(btn_atualizar)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(btn_inserir, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addComponent(txt_deletar, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(txt_atualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jLabel18))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGap(187, 187, 187)
+                        .addComponent(txt_atualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(227, 227, 227)
+                        .addComponent(jLabel3)))
+                .addGap(18, 18, 18)
                 .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
@@ -580,20 +553,15 @@ public class Editar_Perfil extends javax.swing.JFrame {
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addGap(12, 12, 12)
                                 .addComponent(jLabel18)
+                                .addGap(24, 24, 24)
+                                .addComponent(jLabel3)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(txt_atualizar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jLabel3)
-                                    .addComponent(jLabel2))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txt_deletar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txt_atualizar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(btn_inserir)
-                                    .addComponent(btn_atualizar)
-                                    .addComponent(btn_deletar))
-                                .addGap(12, 12, 12))))
+                                    .addComponent(btn_confirmar_alteracoes)
+                                    .addComponent(btn_cancelar))
+                                .addGap(80, 80, 80))))
                     .addComponent(jPanel3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
@@ -611,8 +579,9 @@ public class Editar_Perfil extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(12, 12, 12)
-                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         pack();
@@ -621,19 +590,19 @@ public class Editar_Perfil extends javax.swing.JFrame {
     private void btn_voltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_voltarActionPerformed
         // TODO add your handling code here:
         Editar_Perfil.this.dispose();
-        Menu menu = new Menu();
+        Menu_Cliente menu = new Menu_Cliente();
         menu.setVisible(true);
     }//GEN-LAST:event_btn_voltarActionPerformed
 
     private void btn_alterar_senhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_alterar_senhaActionPerformed
         // TODO add your handling code here:
         Editar_Perfil.this.dispose();
-        Layson_Tela_AlterarSenha alterarSenha = new Layson_Tela_AlterarSenha();
+        Alterar_Senha alterarSenha = new Alterar_Senha();
         alterarSenha.setVisible(true);
         
     }//GEN-LAST:event_btn_alterar_senhaActionPerformed
 
-    private void btn_inserirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_inserirActionPerformed
+    private void btn_confirmar_alteracoesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_confirmar_alteracoesActionPerformed
         // TODO add your handling code here:
         Connection conexao = null;
         PreparedStatement statement = null;
@@ -645,31 +614,28 @@ public class Editar_Perfil extends javax.swing.JFrame {
        try {
             conexao = DriverManager.getConnection(url, usuario, senha);
            
-            String sql = "INSERT INTO editar_perfil(id_usuario, nome, sobrenome, data_nascimento, cpf, e_mail, cep, estado, cidade, rua, numero) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+            String sql = "UPDATE cliente SET nome_completo = ?, data_nasc = ?, telefone = ?, cpf = ?, email = ?, estado = ?, cidade = ?, rua = ?, number_casa = ?, cep = ? WHERE id = ?";
            
             statement = conexao.prepareStatement(sql);
-           //statement.setString(1, jTextPane1_ID.getText());
-           
             
-            statement.setString(1, txt_id_usuario.getText());
-            statement.setString(2, txt_nome.getText());
-            statement.setString(3, txt_sobrenome.getText());
-            statement.setString(4, txt_data_nascimento.getText());
-            statement.setString(5, txt_cpf.getText());
-            statement.setString(6, txt_email.getText());
-            statement.setString(7, txt_cep.getText());
-            statement.setString(8, txt_estado.getText());
-            statement.setString(9, txt_cidade.getText());
-            statement.setString(10, txt_rua.getText());
-            statement.setString(11, txt_numero.getText());
-            //statement.execute();
-           // statement.close();
-           
+            statement.setString(1, txt_nome.getText());
+            statement.setString(2, txt_data_nascimento.getText());
+            statement.setString(3, txt_telefone.getText());
+            statement.setString(4, txt_cpf.getText());
+            statement.setString(5, txt_email.getText());
+            statement.setString(6, txt_estado.getText());
+            statement.setString(7, txt_cidade.getText());
+            statement.setString(8, txt_rua.getText());
+            statement.setString(9, txt_numero.getText());
+            statement.setString(10, txt_cep.getText());
+            statement.setString(11, txt_atualizar.getText());
+         
             int linhasAfetadas = statement.executeUpdate();
            
             if (linhasAfetadas > 0) {
                 
-                JOptionPane.showMessageDialog(rootPane, "Dados inseridos com sucesso!");
+                JOptionPane.showMessageDialog(rootPane, "Dados atualizados com sucesso!");
+                this.PopularJTable("SELECT * FROM cliente id");
                 
             } else {
                 JOptionPane.showMessageDialog(rootPane, "Nenhum dado inserido!");
@@ -687,11 +653,8 @@ public class Editar_Perfil extends javax.swing.JFrame {
                 }
             } catch (SQLException e) {
                 JOptionPane.showMessageDialog(rootPane, "Erro de fechamento!");
-            }}
-    }//GEN-LAST:event_btn_inserirActionPerformed
-
-    private void btn_confirmar_alteracoesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_confirmar_alteracoesActionPerformed
-        // TODO add your handling code here:
+            }
+        }
     }//GEN-LAST:event_btn_confirmar_alteracoesActionPerformed
 
     private void txt_cpfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_cpfActionPerformed
@@ -706,112 +669,6 @@ public class Editar_Perfil extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txt_cepActionPerformed
 
-    private void btn_atualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_atualizarActionPerformed
-        // TODO add your handling code here:
-        Connection conexao = null;
-        PreparedStatement statement = null;
-       
-        String url = "jdbc:mysql://localhost:3307/fashion_foot";
-        String usuario = "ff_lucas";
-        String senha = "123456";
-        
-       try {
-            conexao = DriverManager.getConnection(url, usuario, senha);
-           
-            String sql = "UPDATE editar_perfil SET nome = ?, sobrenome = ?, data_nascimento = ?, cpf = ?, e_mail = ?, cep = ?, estado = ?, cidade = ?, rua = ?, numero = ? WHERE id_usuario = ?";
-           
-            statement = conexao.prepareStatement(sql);
-           //statement.setString(1, jTextPane1_ID.getText());
-           
-            
-            
-            statement.setString(1, txt_nome.getText());
-            statement.setString(2, txt_sobrenome.getText());
-            statement.setString(3, txt_data_nascimento.getText());
-            statement.setString(4, txt_cpf.getText());
-            statement.setString(5, txt_email.getText());
-            statement.setString(6, txt_cep.getText());
-            statement.setString(7, txt_estado.getText());
-            statement.setString(8, txt_cidade.getText());
-            statement.setString(9, txt_rua.getText());
-            statement.setString(10, txt_numero.getText());
-            statement.setString(11, txt_atualizar.getText());
-            //statement.execute();
-           // statement.close();
-           
-            int linhasAfetadas = statement.executeUpdate();
-           
-            if (linhasAfetadas > 0) {
-                
-                JOptionPane.showMessageDialog(rootPane, "Dados inseridos com sucesso!");
-                
-            } else {
-                JOptionPane.showMessageDialog(rootPane, "Nenhum dado inserido!");
-            }
-         } catch (SQLException e) {
-            JOptionPane.showMessageDialog(rootPane, "Erro de inserção de dado!");
-            System.out.println(e.getMessage());
-        } finally {
-            try {
-                if (statement != null) {
-                    statement.close();
-                }
-                if (conexao != null) {
-                    conexao.close();
-                }
-            } catch (SQLException e) {
-                JOptionPane.showMessageDialog(rootPane, "Erro de fechamento!");
-            }}
-    }//GEN-LAST:event_btn_atualizarActionPerformed
-
-    private void btn_deletarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_deletarActionPerformed
-        // TODO add your handling code here:
-        Connection conexao = null;
-        PreparedStatement statement = null;
-       
-        String url = "jdbc:mysql://localhost:3307/fashion_foot";
-        String usuario = "ff_lucas";
-        String senha = "123456";
-        
-       try {
-            conexao = DriverManager.getConnection(url, usuario, senha);
-           
-            String sql = "DELETE FROM editar_perfil WHERE id_usuario = ?";
-           
-            statement = conexao.prepareStatement(sql);
-           //statement.setString(1, jTextPane1_ID.getText());
-           
-            
-            statement.setString(1, txt_deletar.getText());
-            //statement.execute();
-           // statement.close();
-           
-            int linhasAfetadas = statement.executeUpdate();
-           
-            if (linhasAfetadas > 0) {
-                
-                JOptionPane.showMessageDialog(rootPane, "Dados apagados com sucesso!");
-                
-            } else {
-                JOptionPane.showMessageDialog(rootPane, "Nenhum dado apagado!");
-            }
-         } catch (SQLException e) {
-            JOptionPane.showMessageDialog(rootPane, "Erro de delete de dado!");
-            System.out.println(e.getMessage());
-        } finally {
-            try {
-                if (statement != null) {
-                    statement.close();
-                }
-                if (conexao != null) {
-                    conexao.close();
-                }
-            } catch (SQLException e) {
-                JOptionPane.showMessageDialog(rootPane, "Erro de fechamento!");
-            }}
-        
-    }//GEN-LAST:event_btn_deletarActionPerformed
-
     private void Selected(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_Selected
         // TODO add your handling code here:
         Connection conexao = null;
@@ -824,15 +681,94 @@ public class Editar_Perfil extends javax.swing.JFrame {
       
         try {
             conexao = DriverManager.getConnection(url, usuario, senha);
-            this.PopularJTable("SELECT * FROM editar_perfil ORDER BY id_usuario DESC");
+            this.PopularJTable("SELECT * FROM cliente id");
         } catch (SQLException ex) {
             //Logger.getLogger(Tela_Inicial.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_Selected
 
-    private void txt_deletarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_deletarActionPerformed
+    private void btn_alterar_fotoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_alterar_fotoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txt_deletarActionPerformed
+        JOptionPane.showMessageDialog(rootPane,"Essa funcionalidade será implementada em breve!");
+    }//GEN-LAST:event_btn_alterar_fotoActionPerformed
+
+    private void btn_excluir_contaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_excluir_contaActionPerformed
+        // TODO add your handling code here:
+        PreparedStatement statement = null;
+        Connection conexao = null;
+
+        String url = "jdbc:mysql://localhost:3307/fashion_foot";
+        String usuario =  "ff_lucas";
+        String senha = "123456";
+
+        try {
+
+            conexao = DriverManager.getConnection(url, usuario, senha);
+
+            String sql = "DELETE from cliente where id = ?";
+
+            statement = conexao.prepareStatement(sql);
+            statement.setString(1,txt_atualizar.getText());
+
+            int linhasAfetadas = statement.executeUpdate();
+
+            if(linhasAfetadas > 0){
+                
+            String[] opcoes = {"Sim", "Não"};
+            int resposta = JOptionPane.showOptionDialog(rootPane, "Tem certeza que desja sair?", "Confirmação", JOptionPane.DEFAULT_OPTION, JOptionPane.QUESTION_MESSAGE, null, opcoes, opcoes[0]);
+            
+            JOptionPane.showMessageDialog(rootPane,"Dados excluidos com sucesso!");
+            this.PopularJTable("SELECT * FROM cliente id");
+            
+            Editar_Perfil.this.dispose();
+            Login login = new Login();
+            login.setVisible(true);
+            
+            } else {
+                JOptionPane.showMessageDialog(rootPane,"Nenhum dado excluido.");
+            }
+        } catch (SQLException ex) {
+            System.out.println("Erro ao EXCLUIR dados: " + ex.getMessage());
+        } finally {
+            try {
+                if (statement != null) {
+                    statement.close();
+                }
+                if (conexao != null) {
+                    conexao.close();
+                }
+            } catch (SQLException ex) {
+                System.out.println("Erro ao fechar conexão: " + ex.getMessage());
+            }
+        }  
+    }//GEN-LAST:event_btn_excluir_contaActionPerformed
+
+    private void btn_cancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_cancelarActionPerformed
+        // TODO add your handling code here:
+        Editar_Perfil.this.dispose();
+        Menu_Cliente menu = new Menu_Cliente();
+        menu.setVisible(true);
+    }//GEN-LAST:event_btn_cancelarActionPerformed
+
+    private void txt_atualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_atualizarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt_atualizarActionPerformed
+
+    private void tb_dadosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tb_dadosMouseClicked
+        // TODO add your handling code here:
+        int linha = tb_dados.getSelectedRow();
+        txt_atualizar.setText(tb_dados.getValueAt(linha,0).toString());
+        txt_nome.setText(tb_dados.getValueAt(linha,1).toString());
+        txt_data_nascimento.setText(tb_dados.getValueAt(linha,2).toString());
+        txt_telefone.setText(tb_dados.getValueAt(linha,3).toString());
+        txt_cpf.setText(tb_dados.getValueAt(linha,4).toString());
+        txt_email.setText(tb_dados.getValueAt(linha,5).toString());
+        txt_numero.setText(tb_dados.getValueAt(linha,6).toString());
+        txt_estado.setText(tb_dados.getValueAt(linha,7).toString());
+        txt_cidade.setText(tb_dados.getValueAt(linha,8).toString());
+        txt_rua.setText(tb_dados.getValueAt(linha,9).toString());
+        txt_cep.setText(tb_dados.getValueAt(linha,10).toString());
+    }//GEN-LAST:event_tb_dadosMouseClicked
 
     /**
      * @param args the command line arguments
@@ -860,6 +796,9 @@ public class Editar_Perfil extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(Editar_Perfil.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -872,12 +811,9 @@ public class Editar_Perfil extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_alterar_foto;
     private javax.swing.JButton btn_alterar_senha;
-    private javax.swing.JButton btn_atualizar;
     private javax.swing.JButton btn_cancelar;
     private javax.swing.JButton btn_confirmar_alteracoes;
-    private javax.swing.JButton btn_deletar;
     private javax.swing.JButton btn_excluir_conta;
-    private javax.swing.JButton btn_inserir;
     private javax.swing.JToggleButton btn_voltar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
@@ -890,11 +826,9 @@ public class Editar_Perfil extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
-    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
@@ -911,13 +845,11 @@ public class Editar_Perfil extends javax.swing.JFrame {
     private javax.swing.JTextField txt_cidade;
     private javax.swing.JTextField txt_cpf;
     private javax.swing.JTextField txt_data_nascimento;
-    private javax.swing.JTextField txt_deletar;
     private javax.swing.JTextField txt_email;
     private javax.swing.JTextField txt_estado;
-    private javax.swing.JTextField txt_id_usuario;
     private javax.swing.JTextField txt_nome;
     private javax.swing.JTextField txt_numero;
     private javax.swing.JTextField txt_rua;
-    private javax.swing.JTextField txt_sobrenome;
+    private javax.swing.JTextField txt_telefone;
     // End of variables declaration//GEN-END:variables
 }

@@ -30,7 +30,7 @@ estado VARCHAR(255),
 cidade VARCHAR(255),
 rua VARCHAR(255),
 number_casa INT(2),
-cep INT(9) NOT NULL
+cep CHAR(9) NOT NULL
 );
 
 create table funcionario(
@@ -39,11 +39,11 @@ nome VARCHAR(55) NOT NULL,
 sobrenome VARCHAR(55) NOT NULL,
 data_nascimento DATE,
 sexo VARCHAR(55),
-cpf VARCHAR(14),
+cpf VARCHAR (14),
 rg VARCHAR(20),
 estado_civil VARCHAR(55),
 email VARCHAR(155), 
-cep INT(9),
+cep CHAR(9),
 estado VARCHAR(55),
 bairro VARCHAR(44),
 numero VARCHAR(55),
@@ -64,31 +64,25 @@ cod_barra BIGINT(14),
 tipo_produto VARCHAR(60)
 );
 
-CREATE TABLE editar_perfil(
-id_usuario SMALLINT PRIMARY KEY,
-nome VARCHAR(60),
-sobrenome VARCHAR(60),
-data_nascimento DATE,
-cpf CHAR(14),
-cep INT(9),
-e_mail VARCHAR(255),
-estado VARCHAR(255),
-cidade VARCHAR(255),
-rua VARCHAR(255),
-numero INT(9)
-);
-
 CREATE TABLE pagamento(
-id_usuario SMALLINT PRIMARY KEY,
+id_usuario SMALLINT PRIMARY KEY AUTO_INCREMENT,
 nome VARCHAR(60) NOT NULL,
 data_nascimento DATE NOT NULL,
 numero_cpf_cnpj VARCHAR(14) NOT NULL,
 nome_cartao VARCHAR(60),
-numero_cartao INT(16),
+numero_cartao VARCHAR(20),
 mes_validade CHAR(3),
 ano_validade CHAR(4),
 cvv INT(3),
 parcelas VARCHAR(12)
+);
+
+CREATE TABLE agendamento(
+horario VARCHAR (40),
+nome VARCHAR (60),
+idade INT (3),
+endereco VARCHAR (60),
+categoria VARCHAR (60)
 );
 
 CREATE USER 'ff_layson'@'localhost' IDENTIFIED BY '123456';
@@ -99,7 +93,3 @@ GRANT SELECT, INSERT, UPDATE, DELETE ON `fashion_foot`.* TO 'ff_lucas';
 
 CREATE USER 'ff_joao'@'localhost' IDENTIFIED BY 'senha0123';
 GRANT SELECT, INSERT, UPDATE, DELETE ON `fashion_foot`.* TO 'ff_joao';
-
-DESCRIBE editar_perfil;
-SELECT * FROM editar_perfil;
-INSERT INTO editar_perfil(id_usuario, nome, sobrenome, data_nascimento, cpf, cep, e_mail, estado, cidade, rua, numero) VALUES(1, 'joão', 'pessin', '2001-02-17', '12345678905', '123456789', 'fsdsaf@fdsfasd.com', 'es', 'fdsfsa', 'fsfsd', 23);

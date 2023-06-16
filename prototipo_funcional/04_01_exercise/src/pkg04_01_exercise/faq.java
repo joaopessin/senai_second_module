@@ -193,7 +193,7 @@ public class faq extends javax.swing.JFrame {
     private void Bot_voltaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Bot_voltaActionPerformed
         // TODO add your handling code here:
         faq.this.dispose();
-        Menu menu =  new Menu();
+        Menu_Cliente menu =  new Menu_Cliente();
         menu.setVisible(true);
     }//GEN-LAST:event_Bot_voltaActionPerformed
 
